@@ -3,6 +3,7 @@ package com.alfazid.siasd.controller;
 import com.alfazid.siasd.model.SekolahEntity;
 import com.alfazid.siasd.repository.SekolahRepository;
 import com.alfazid.siasd.service.SekolahService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

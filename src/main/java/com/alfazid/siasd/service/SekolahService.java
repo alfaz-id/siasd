@@ -1,4 +1,8 @@
+/**
+ * 
+ */
 package com.alfazid.siasd.service;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +15,12 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-
+/**
+ * @author   mohirwanh@gmail.com
+ * @web	     www.alfaz.id
+ * @Date     Oct 14, 2019
+ * @projects siasd @package com.alfazid.siasd.service
+ */
 
 @Service
 public class SekolahService{

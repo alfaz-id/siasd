@@ -6,26 +6,26 @@
     <div class="row">
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                <h2>Master Kelas <span th:text="${mode}"></span></h2>
+                <h2>Master Jenis Nilai <span th:text="${mode}"></span></h2>
             </div>
             <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12">
-                <form action="#" th:action="@{/kelas/{id}(id=${kelasEntity.idKelas})}" th:object="${kelasEntity}"
+                <form action="#" th:action="@{/jenis-nilai/{id}(id=${jenisNilai.idJenisNilai})}" th:object="${jenisNilai}"
                       method="POST">
                     <div class="form-group row has-success">
-                        <label class="control-label col-sm-3" for="idKelas">ID Kelas</label>
+                        <label class="control-label col-sm-3" for="idKelas">ID Jenis Nilai</label>
 
                         <div class="col-sm-6">
-                            <input class="form-control form-control-sm" th:field="*{idKelas}" type="text" id="idKelas"
-                                   name="idKelas"  readonly style="background-color: transparent;border: transparent 0px;">
+                            <input class="form-control form-control-sm" th:field="*{idJenisNilai}" type="text" id="idJenisNilai"
+                                   name="idJenisNilai"  readonly style="background-color: transparent;border: transparent 0px;">
                         </div>
                     </div>
                     <div class="form-group row has-success">
-                        <label class="control-label col-sm-3" for="namaKelas">Nama Kelas</label>
+                        <label class="control-label col-sm-3" for="namaKelas">Nama Jenis Nilai</label>
 
                         <div class="col-sm-6">
-                            <input class="form-control form-control-sm" type="text" th:field="*{namaKelas}" id="namaKelas"
-                                   name="namaGuru" placeholder="Masukan nama kelas" required>
-                            <span th:if="${#fields.hasErrors('namaKelas')}" th:errors="*{namaKelas}"
+                            <input class="form-control form-control-sm" type="text" th:field="*{namaJeniNilai}" id="namaJeniNilai"
+                                   name="namaJeniNilai" placeholder="Masukan nama jenis nilai" required>
+                            <span th:if="${#fields.hasErrors('namaJeniNilai')}" th:errors="*{namaJeniNilai}"
                                   class="text-danger"></span>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="">
                         <div class="col-sm-6" style="float: right;">
-                            <a class="btn btn-sm btn-secondary" href="/kelas/">
+                            <a class="btn btn-sm btn-secondary" href="/jenis-nilai/">
                                 Batal
                             </a>
                             <input type="submit" class="btn btn-secondary btn-sm" value="Simpan" id="btnSimpan"/>
