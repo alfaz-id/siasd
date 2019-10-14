@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/sipnr</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+    <mapping class="com.alfazid.siasd.model.EkskulEntity"/>
+    <mapping class="com.alfazid.siasd.model.GuruEntity"/>
+    <mapping class="com.alfazid.siasd.model.KelasEntity"/>
+    <mapping class="com.alfazid.siasd.model.KelasSiswaEntity"/>
+    <mapping class="com.alfazid.siasd.model.MapelEntity"/>
+    <mapping class="com.alfazid.siasd.model.MengajarEntity"/>
+    <mapping class="com.alfazid.siasd.model.NilaiEkskulEntity"/>
+    <mapping class="com.alfazid.siasd.model.NilaiMapelEntity"/>
+    <mapping class="com.alfazid.siasd.model.SiswaEntity"/>
+    <mapping class="com.alfazid.siasd.model.WaliKelasEntity"/>
+    <mapping class="com.alfazid.siasd.model.BahasaIbuEntity"/>
+    <mapping class="com.alfazid.siasd.model.DesaEntity"/>
+    <mapping class="com.alfazid.siasd.model.GlobalEntity"/>
+    <mapping class="com.alfazid.siasd.model.KabupatenEntity"/>
+    <mapping class="com.alfazid.siasd.model.KecamatanEntity"/>
+    <mapping class="com.alfazid.siasd.model.PekerjaanEntity"/>
+    <mapping class="com.alfazid.siasd.model.ProvinsiEntity"/>
+    <mapping class="com.alfazid.siasd.model.SekolahEntity"/>
+    <mapping class="com.alfazid.siasd.model.GuruEntity"/>
+  </session-factory>
+</hibernate-configuration>

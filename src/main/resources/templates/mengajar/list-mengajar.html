@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                <h2>Data Mengajar</h2>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="mr-2">
+                        <select class="form-control form-control-sm" id="by" name="by">
+                            <option th:value="All">All</option>
+                            <option th:value="b.nama_guru">Nama Guru</option>
+                            <option th:value="c.nama_kelas">Nama Kelas</option>
+                            <option th:value="d.nama_mapel">Mata Pelajaran</option>
+                            <option th:value="a.tahun_ajaran">Tahun Ajaran</option>
+                            <option th:value="b.semester">Semester</option>
+                            <option th:value="a.active">Active</option>
+                        </select>
+                    </div>
+                    <div class="btn-group mr-2">
+                        <input type="text" placeholder="Cari nama pengajar" name="search" id="search" onsubmit="onSearch()"
+                               class="form-control input-sm form-control-sm" onpr/>
+                        <button class="btn btn-sm btn-secondary" onclick="onSearch()">Cari</button>
+                    </div>
+                    <a class="btn btn-sm btn-secondary" href="/mengajar/create">
+                        Tambah Data
+                    </a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm table-hover">
+                    <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Guru</th>
+                        <th>Nama Kelas</th>
+                        <th>Mata Pelajaran</th>
+                        <th>Tahun Ajaran</th>
+                        <th>Semester</th>
+                        <th>Active</th>
+                        <th style="text-align: center">#</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="mengajarr,iter : ${page.content}">
+                        <td th:text="${(page.number) * page.size + iter.index + 1}"></td>
+                        <td th:text="${mengajarr.namaGuru}"></td>
+                        <td th:text="${mengajarr.namaKelas}"></td>
+                        <td th:text="${mengajarr.namaMapel}"></td>
+                        <td th:text="${mengajarr.tahunAjaran}"></td>
+                        <td th:text="${mengajarr.semester}"></td>
+                        <td style="width: 50px;text-align: center" th:text="${mengajarr.active}"></td>
+                        <td style="width: 50px;">
+                            <a th:href="@{/mengajar/{id}(id=${mengajarr.idMengajar})}" style="padding: 3px;"><span
+                                    class="fa fa-pencil"></span></a>
+                            <a th:href="@{/mengajar/delete/{id}(id=${mengajarr.idMengajar})}" style="padding: 3px;"><span
+                                    class="fa fa-trash"></span></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-6">
+                    <input type="hidden" th:value="${page.number}" id="txtCurrent"/>
+
+                    <div class="form-group row">
+                        <label class="hidden-xs col-sm-3 col-form-label" for="size">Records :</label>
+
+                        <div class="col-sm-2">
+                            <select class="form-control form-control-sm" th:onchange="|onRefresh()|" id="size"
+                                    name="size">
+                                <option th:value="5" th:text="5" th:selected="${page.size == 5}"></option>
+                                <option th:value="10" th:text="10" th:selected="${page.size == 10}"></option>
+                                <option th:value="50" th:text="50" th:selected="${page.size == 50}"></option>
+                                <option th:value="500" th:text="500" th:selected="${page.size == 500}"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function onRefresh() {
+                        var page = document.getElementById("size").value;
+                        var txtCurrent = document.getElementById("txtCurrent").value;
+                        window.location = "/mengajar?page=" + txtCurrent + "&size=" + page;
+                    }
+                    function onSearch() {
+                        var page = document.getElementById("size").value;
+                        var txtCurrent = document.getElementById("txtCurrent").value;
+                        var search = document.getElementById("search").value;
+                        var by = document.getElementById("by").value;
+                        console.log(search)
+                        if (search !="") {
+                            window.location = "/mengajar/" + by + "/" + search + "?page=" + txtCurrent + "&size=" + page;
+                        } else {
+                            window.location = "/mengajar/"
+                        }
+                    }
+                </script>
+                <div class="col-xs-6 col-sm-6">
+                    <nav aria-label="Navigation for countries" style="float: right;">
+                        <ul class="pagination">
+                            <th:if test="${page.hasPrevious() !=0}">
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{/mengajar(page=${page.number - 1},size=${page.size})}">Prev</a>
+                                </li>
+                            </th:if>
+
+                            <li class="page-item">
+                                <label class="page-link">
+                                    <span th:text="${page.number +1}"></span> / <span
+                                        th:text="${page.totalPages}"></span>
+                                </label>
+                            </li>
+                            <th:if test="${page.number < page.totalPages}">
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{/mengajar(page=${page.number + 1},size=${page.size})}">Next</a>
+                                </li>
+                            </th:if>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>

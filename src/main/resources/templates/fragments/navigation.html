@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>SI</title>
+</head>
+
+<body>
+
+<!-- ============================================================== -->
+<!-- Topbar header - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<header class="topbar" th:fragment="navigation">
+    <nav class="navbar navbar-red fixed-top bg-red flex-md-nowrap p-0" style="height: 80px;color: #fff;background-color:#8c1010;border-bottom: solid #f2f3f3 1px;">
+        <a class="navbar-brand  col-sm-3 col-md-2 mr-0" href="/">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <img src="/images/logo.png" alt="homepage"  style="width: 50px;height: 50px;"/>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 ">
+                    <span style="color: #fff;font-size: 14px;margin-left: 5px;">Aplikasi Raport <br>Kurikulum 2019</span>
+                </div>
+            </div>
+        </a>
+        <div class="form-control fixed-left  hidden-xs header-profile">
+            <p>SISTEM PENCATATAN NILAI RAPOT BERDASARKAN KURIKULUM 2019</p>
+            <p>SD NEGERI 01 TEGAL JAYA</p>
+        </div>
+        <div class="form-control fixed-right hidden-xs header-profile-right">
+            <p th:text="'NIP :' +${session.nip}"></p>
+        </div>
+    </nav>
+</header>
+</body>
+
+</html>

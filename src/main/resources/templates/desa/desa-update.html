@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/layout">
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                <h2>
+                    Master Desa <span th:text="${mode}"></span>
+                </h2>
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12">
+				<span th:switch="${error}">
+					<div th:case="true" class="alert alert-danger" role="alert">
+                        Kode sudah terdaftar silahkan update data jika diperlukan !</div>
+				</span>
+                <form action="#"
+                      th:action="@{/desa/{id}(id=${desaEntity.idDesa})}"
+                      th:object="${desaEntity}" method="POST">
+                    <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="idDesa">ID
+                            Desa</label>
+                        <div class="col-sm-6">
+                            <input class="form-control form-control-sm"
+                                   th:field="*{idDesa}" type="text" id="idDesa"
+                                   name="idDesa" readonly
+                                   style="background-color: transparent; border: transparent 0px;">
+                        </div>
+                    </div>
+                    <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="idKecamatan">Kecamatan</label>
+                        <div class="col-sm-6">
+                            <select class="form-control form-control-sm" id="idKecamatan"
+                                    th:field="*{idKecamatan}" name="idKecamatan">
+                                <option value="0" disabled>Pilih</option>
+                                <option th:each="kec : ${kecamatan}"
+                                        th:value="${kec.idKecamatan}"
+                                        th:text="${kec.namaKecamatan}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="kodeDesa">Kode
+                            Desa</label>
+                        <div class="col-sm-6">
+                            <input class="form-control form-control-sm" type="text"
+                                   maxlength="10" th:field="*{kodeDesa}" id="kodeDesa"
+                                   name="namaDesa" placeholder="Masukan kode desa" required>
+							<span th:if="${#fields.hasErrors('kodeDesa')}"
+                                  th:errors="*{kodeDesa}" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="namaDesa">Nama
+                            Desa</label>
+                        <div class="col-sm-6">
+                            <input class="form-control form-control-sm" type="text"
+                                   th:field="*{namaDesa}" id="namaDesa" name="namaDesa"
+                                   placeholder="Masukan nama desa" required> <span
+                                th:if="${#fields.hasErrors('namaDesa')}"
+                                th:errors="*{namaDesa}" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="active">Active</label>
+                        <div class="col-sm-6">
+                            <select class="form-control form-control-sm" th:field="*{active}"
+                                    id="active" name="active">
+                                <option th:value="Y">Ya</option>
+                                <option th:value="N">Tidak</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="col-sm-6" style="float: right;">
+                            <a class="btn btn-sm btn-secondary" href="/desa/"> Batal
+                            </a> <input type="submit" class="btn btn-secondary btn-sm"
+                                        value="Simpan" id="btnSimpan" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

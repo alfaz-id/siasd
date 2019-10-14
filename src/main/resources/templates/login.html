@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Spring Security Tutorial</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/bundle.js}"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+            <img th:src="@{/images/logo.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo"/>
+            <form th:action="@{/login}" method="POST" class="form-signin">
+                <h3 class="form-signin-heading h1-custom">SISTEM INFORMASI AKADEMIK SEKOLAH DASAR</h3>
+                <br/>
+
+                <input type="text" id="username" name="username" placeholder="Masukan NIP"
+                       class="form-control form-control-sm"/> <br/>
+                <input type="password" placeholder="Masukan password"
+                       id="password" name="password" class="form-control form-control-sm"/> <br/>
+
+                <div align="center" th:if="${param.error}">
+                    <p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-sm" name="Submit" value="Login" type="Submit"
+                        th:text="Login"></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+</body>
+</html>

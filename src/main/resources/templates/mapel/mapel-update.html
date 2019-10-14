@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                <h2>Master Mapel <span th:text="${mode}"></span></h2>
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12">
+                <form action="#" th:action="@{/mapel/{id}(id=${mapelEntity.idMapel})}" th:object="${mapelEntity}"
+                      method="POST">
+                    <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="idMapel">ID Mapel</label>
+
+                        <div class="col-sm-6">
+                            <input class="form-control form-control-sm" th:field="*{idMapel}" type="text" id="idMapel"
+                                   name="idMapel"  readonly style="background-color: transparent;border: transparent 0px;">
+                        </div>
+                    </div>
+                    <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="namaMapel">Nama Mapel</label>
+
+                        <div class="col-sm-6">
+                            <input class="form-control form-control-sm" type="text" th:field="*{namaMapel}" id="namaMapel"
+                                   name="namaMapel" placeholder="Masukan nama mata pelajaran" required>
+                            <span th:if="${#fields.hasErrors('namaMapel')}" th:errors="*{namaMapel}"
+                                  class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="active">Active</label>
+
+                        <div class="col-sm-6">
+                            <select class="form-control form-control-sm" th:field="*{active}" id="active" name="active">
+                                <option th:value="Y">Ya</option>
+                                <option th:value="N">Tidak</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="col-sm-6" style="float: right;">
+                            <a class="btn btn-sm btn-secondary" href="/kelas/">
+                                Batal
+                            </a>
+                            <input type="submit" class="btn btn-secondary btn-sm" value="Simpan" id="btnSimpan"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

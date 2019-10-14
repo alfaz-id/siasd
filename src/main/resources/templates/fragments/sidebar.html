@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="sidebar">
+    <nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+            <ul class="list-unstyled components" style="margin-top: 40px;">
+                <li class="nav-item">
+                    <a class="accordion">Master Sekolah
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="panel">
+                    <a class="nav-link" href="/admin/">
+                            <span data-feather="shopping-cart"></span>
+                            Data Admin
+                        </a>
+                        <a class="nav-link" href="/guru/">
+                            <span data-feather="shopping-cart"></span>
+                            Data Guru
+                        </a>
+                        <a class="nav-link" href="/siswa/">
+                            <span data-feather="users"></span>
+                            Data Siswa
+                        </a>
+						<a class="nav-link" href="/mapel/">
+                            <span data-feather="layers"></span>
+                            Data Mapel
+                        </a>
+                        <a class="nav-link" href="/mengajar/">
+                            <span data-feather="layers"></span>
+                            Data Mengajar
+                        </a>
+                        <a class="nav-link" href="/kelas/">
+                            <span data-feather="bar-chart-2"></span>
+                            Data Kelas
+                        </a>
+                        <a class="nav-link" href="/ekskul/">
+                            <span data-feather="layers"></span>
+                            Data Ektrakulikuler
+                        </a>
+                        <a class="nav-link" href="/jenis-nilai/">
+                            <span data-feather="layers"></span>
+                            Data Jenis Nilai
+                        </a>
+                        <a class="nav-link" href="#">
+                            <span data-feather="layers"></span>
+                            Data Komp Nilai
+                        </a>
+                        <a class="nav-link" href="/walikelas/">
+                            <span data-feather="layers"></span>
+                            Data Wali Kelas
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="accordion">Input Nilai
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+
+                    <div class="panel">
+                        <a class="nav-link" href="/sekolah/">
+                            <span data-feather="layers"></span>
+                            Input Nilai Mapel
+                        </a>
+                        <a class="nav-link" href="/provinsi/">
+                            <span data-feather="layers"></span>
+                            Input Nilai Ekskul
+                        </a>
+                        <a class="nav-link" href="/kabupaten/">
+                            <span data-feather="layers"></span>
+                            Input Nilai Pengembangan Diri
+                        </a>
+                        <a class="nav-link" href="/kecamatan/">
+                            <span data-feather="layers"></span>
+                            Input Ketidak Hadiran
+                        </a>
+                        <a class="nav-link" href="/desa/">
+                            <span data-feather="layers"></span>
+                            Input Saran
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="accordion">Master Data
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+
+                    <div class="panel">
+                        <a class="nav-link" href="/sekolah/">
+                            <span data-feather="layers"></span>
+                            Data Sekolah
+                        </a>
+                        <a class="nav-link" href="/provinsi/">
+                            <span data-feather="layers"></span>
+                            Data Provinsi
+                        </a>
+                        <a class="nav-link" href="/kabupaten/">
+                            <span data-feather="layers"></span>
+                            Data Kabupaten
+                        </a>
+                        <a class="nav-link" href="/kecamatan/">
+                            <span data-feather="layers"></span>
+                            Data Kecamatan
+                        </a>
+                        <a class="nav-link" href="/desa/">
+                            <span data-feather="layers"></span>
+                            Data Desa/Kelurahan
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="accordion">Report
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="panel">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Cetak Raport Siswa
+                        </a>
+                         <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Cetak Buku Induk
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"></h6>
+            <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span data-feather="file-text"></span>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                /* Toggle between adding and removing the "active" class,
+                 to highlight the button that controls the panel */
+                this.classList.toggle("active");
+
+                /* Toggle between hiding and showing the active panel */
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+</div>
