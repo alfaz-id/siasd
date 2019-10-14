@@ -1,3 +1,5 @@
+package com.alfazid.siasd.dto;
+
 import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
