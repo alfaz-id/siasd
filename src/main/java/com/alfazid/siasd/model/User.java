@@ -18,7 +18,7 @@ import java.util.Set;
 @Data
 @Builder
 @Entity
-@Table(name = "user_login")
+@Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
