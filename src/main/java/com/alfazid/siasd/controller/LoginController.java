@@ -68,7 +68,7 @@ public class LoginController {
         request.getSession().setAttribute("nip", user.getUsername());
         GuruEntity guruEntity =  guruRepository.findByNip(user.getUsername());
         request.getSession().setAttribute("idSekolah", guruEntity.getIdSekolah());
-        modelAndView.setViewName("/admin/dashboard");
+        modelAndView.setViewName("admin/dashboard");
         return modelAndView;
     }
 }
