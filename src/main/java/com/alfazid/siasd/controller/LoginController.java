@@ -60,7 +60,7 @@ public class LoginController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/admin/dashboard", method = RequestMethod.GET)
+    @RequestMapping(value="/dashboard", method = RequestMethod.GET)
     public ModelAndView home(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
