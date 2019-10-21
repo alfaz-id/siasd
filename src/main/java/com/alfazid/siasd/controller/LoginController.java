@@ -46,7 +46,7 @@ public class LoginController {
     public  ModelAndView createNewUser(ModelAndView modelAndView,@Valid User user,BindingResult bindingResult){
         User userExist = userService.findUserByUsername(user.getUsername());
         if(userExist !=null){
-            bindingResult.rejectValue("email","error.user","There is already a user registered with the email provided");
+            bindingResult.rejectValue("nip","error.user","There is already a user registered with the NIP provided");
         }
         if(bindingResult.hasErrors()){
             modelAndView.setViewName("registration");
