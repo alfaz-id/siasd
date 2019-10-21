@@ -12,7 +12,7 @@
 	<artifactId>siasd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>siasd</name>
-	<description>Sistem Informasi Akademik Sekolah Dasar</description>
+	<description>Sistem Informasi Akademik</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -50,9 +50,9 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
 		<dependency>
-		    <groupId>postgresql</groupId>
-		    <artifactId>postgresql</artifactId>
-		    <version>9.1-901.jdbc4</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		
 		<dependency>
