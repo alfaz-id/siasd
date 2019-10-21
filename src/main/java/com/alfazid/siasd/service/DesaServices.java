@@ -33,7 +33,7 @@ public class DesaServices {
 	public Page<DesaDto> findAll(Pageable pageable){
 		String COUNT_SQL = "SELECT count(1) AS row_count FROM desa a join kecamatan b on a.id_kecamatan=b.id_kecamatan";
 		int total = jdbcTemplate.queryForObject(COUNT_SQL,int.class);
-		String QUERY_SQL ="SELECT a.*,b.nama_kecamatan from desa a join kecamatan b on a.id_kecamatan=b.id_kecamatan"
+		String QUERY_SQL ="SELECT b.nama_kecamatan,a.* from desa a join kecamatan b on a.id_kecamatan=b.id_kecamatan"
 					+ " limit "+pageable.getOffset()+","+pageable.getPageSize();
 
 		List<DesaDto> desaDtos = new ArrayList<>();
@@ -45,7 +45,7 @@ public class DesaServices {
 			obj.setIdKecamatan(((Integer) row.get("id_kecamatan")));
 			obj.setNamaKecamatan(((String) row.get("nama_kecamatan")));
 			obj.setKodeDesa(((String) row.get("kode_desa")));
-			obj.setNamaKecamatan(((String) row.get("nama_desa")));
+			obj.setNamaDesa(((String) row.get("nama_desa")));
 			obj.setActive(((String) row.get("active")));
 			desaDtos.add(obj);
 		}
@@ -57,7 +57,7 @@ public class DesaServices {
 							" WHERE "+field+" lIKE '%"+param+"%'";
 		int total = jdbcTemplate.queryForObject(COUNT_SQL,int.class);
 
-		String QUERY_SQL ="SELECT a.*,b.nama_kecamatan from desa a join kecamatan b on a.id_kecamatan=b.id_kecamatan \n"+
+		String QUERY_SQL ="SELECT b.nama_kecamatan,a.* from desa a join kecamatan b on a.id_kecamatan=b.id_kecamatan \n"+
 						"WHERE"+field+" lIKE '%"+param+"%' limit "+pageable.getOffset()+","+pageable.getPageSize();
 
 		List<DesaDto> desaDtos = new ArrayList<>();
@@ -69,7 +69,7 @@ public class DesaServices {
 			obj.setIdKecamatan(((Integer) row.get("id_kecamatan")));
 			obj.setNamaKecamatan(((String) row.get("nama_kecamatan")));
 			obj.setKodeDesa(((String) row.get("kode_desa")));
-			obj.setNamaKecamatan(((String) row.get("nama_desa")));
+			obj.setNamaDesa(((String) row.get("nama_desa")));
 			obj.setActive(((String) row.get("active")));
 			desaDtos.add(obj);
 		}

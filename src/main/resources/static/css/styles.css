@@ -223,6 +223,18 @@ ul ul a {
     font-size: small;
 }
 
+th{
+  color: #fff !important;
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  font-style: normal !important;
+  height: 33px !important;
+}
+
+main div h2{
+	font-size: 24px !important;
+}
+
 .form-group {
     margin-bottom: 0.4rem;
 }

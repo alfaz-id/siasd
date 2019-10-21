@@ -20,7 +20,7 @@
                                class="form-control input-sm form-control-sm" onpr/>
                         <button class="btn btn-sm btn-secondary" onclick="onSearch()">Cari</button>
                     </div>
-                    <a class="btn btn-sm btn-secondary" href="/jenis_nilai/create">
+                    <a class="btn btn-sm btn-secondary" href="/jenis-nilai/create">
                         Tambah Data
                     </a>
                 </div>
@@ -41,9 +41,9 @@
                         <td th:text="${items.namaJenisNilai}"></td>
                         <td style="width: 50px;text-align: center" th:text="${items.active}"></td>
                         <td style="width: 50px;">
-                            <a th:href="@{/kelas/{id}(id=${items.idJenisNilai})}" style="padding: 3px;"><span
+                            <a th:href="@{/jenis-nilai/update/{id}(id=${items.idJenisNilai})}" style="padding: 3px;"><span
                                     class="fa fa-pencil"></span></a>
-                            <a th:href="@{/kelas/delete/{id}(id=${items.idJenisNilai})}" style="padding: 3px;"><span
+                            <a th:href="@{/jenis-nilai/delete/{id}(id=${items.idJenisNilai})}" style="padding: 3px;"><span
                                     class="fa fa-trash"></span></a>
                         </td>
                     </tr>
@@ -72,7 +72,7 @@
                     function onRefresh() {
                         var page = document.getElementById("size").value;
                         var txtCurrent = document.getElementById("txtCurrent").value;
-                        window.location = "/kelas?page=" + txtCurrent + "&size=" + page;
+                        window.location = "/jenis-nilai?page=" + txtCurrent + "&size=" + page;
                     }
                     function onSearch() {
                         var page = document.getElementById("size").value;
@@ -80,9 +80,9 @@
                         var search = document.getElementById("search").value;
                         var by = document.getElementById("by").value;
                         if (search !="") {
-                            window.location = "/kelas/" + by + "/" + search + "?page=" + txtCurrent + "&size=" + page;
+                            window.location = "/jenis-nilai/" + by + "/" + search + "?page=" + txtCurrent + "&size=" + page;
                         }else{
-                            window.location = "/kelas/";
+                            window.location = "/jenis-nilai/";
                         }
                     }
                 </script>
@@ -91,7 +91,7 @@
                         <ul class="pagination">
                             <th:if test="${page.hasPrevious() !=0}">
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{/kelas(page=${page.number - 1},size=${page.size})}">Prev</a>
+                                    <a class="page-link" th:href="@{/jenis-nilai(page=${page.number - 1},size=${page.size})}">Prev</a>
                                 </li>
                             </th:if>
 
@@ -103,7 +103,7 @@
                             </li>
                             <th:if test="${page.number < page.totalPages}">
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{/kelas(page=${page.number + 1},size=${page.size})}">Next</a>
+                                    <a class="page-link" th:href="@{/jenis-nilai(page=${page.number + 1},size=${page.size})}">Next</a>
                                 </li>
                             </th:if>
                         </ul>

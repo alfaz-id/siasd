@@ -16,7 +16,7 @@ import com.alfazid.siasd.model.JenisNilai;
  * @Date     Oct 13, 2019
  * @projects siasd @package com.alfazid.siasd.repository
  */
-public interface JenisNilaiRepository extends JpaRepository<JenisNilai, Long>,PagingAndSortingRepository<JenisNilai,Long> {
+public interface JenisNilaiRepository extends JpaRepository<JenisNilai, Integer>,PagingAndSortingRepository<JenisNilai,Integer> {
 
 //	Page<JenisNilai> findAll(int idSekolah);
 //	Page<JenisNilai> findByName(Pageable pageable,String namaJenisNilai,int idSekolah);

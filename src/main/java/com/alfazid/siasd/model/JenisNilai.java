@@ -42,12 +42,13 @@ public class JenisNilai {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_jenis_nilai")
     private int idJenisNilai;
+    
     @Column(name = "nama_jenis_nilai")
-    @Length(min = 3, message = "*Minimal panjang 3 karakter")
+    @Length(min = 2, message = "*Minimal panjang 2 karakter")
     @NotEmpty(message = "*Inputan tidak boleh kosong")
     private String namaJenisNilai;
+    
     @Column(name = "active")
-    @NotEmpty(message = "*Inputan tidak boleh kosong")
     private String active;
     @Column(name = "user_created")
     private Integer userCreated;

@@ -92,8 +92,7 @@ public class GuruController {
         return new ModelAndView ("guru/update");
     }
     @RequestMapping(value ="/{id}",method = RequestMethod.POST)
-     public ModelAndView  doPut(Model model,@ModelAttribute("guruEntity") GuruEntity guruEntity,@PathVariable int id,
-                                @PageableDefault(size = 10) Pageable pageable){
+     public ModelAndView  doPut(Model model,@ModelAttribute("guruEntity") GuruEntity guruEntity,@PathVariable int id){
         try{
             guruEntity.setIdGuru(id);
             guruEntity.setIdSekolah(idSekolah);
@@ -102,8 +101,6 @@ public class GuruController {
         }catch (HTTPException he){
             model.addAttribute("error",new RestError(true,500,"Error"));
         }
-        Page<GuruEntity> page = guruRepository.findAll(pageable,idSekolah);
-        model.addAttribute("page",page);
         return new ModelAndView ("redirect:/guru");
     }
     @RequestMapping(value ="/delete/{id}",method = RequestMethod.GET)
