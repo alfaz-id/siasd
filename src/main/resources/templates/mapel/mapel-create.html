@@ -10,6 +10,16 @@
             </div>
             <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12">
                 <form action="#" th:action="@{/mapel/}" th:object="${mapelEntity}" method="POST">
+                  <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="kodeMapel">Kode Mapel</label>
+
+                        <div class="col-sm-6">
+                            <input class="form-control form-control-sm" type="text" th:field="*{kodeMapel}" id="kodeMapel"
+                                   name="namaMapel" placeholder="Masukan kode mata pelajaran" maxlength="20" required>
+                            <span th:if="${#fields.hasErrors('kodeMapel')}" th:errors="*{kodeMapel}"
+                                  class="text-danger"></span>
+                        </div>
+                    </div>
                     <div class="form-group row has-success">
                         <label class="control-label col-sm-3" for="namamapel">Nama mapel</label>
                         <div class="col-sm-6">

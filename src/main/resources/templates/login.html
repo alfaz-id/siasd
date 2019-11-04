@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="header">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <title>System Infromasi Akademik Sekolah Dasar</title>
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
-    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
-    <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome.min.css}" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Favicon icon -->
+<link rel="icon" type="image/png" href="favicon.png">
+<title>System Infromasi Akademik Sekolah Dasar</title>
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/fonts/font-awesome.min.css}" />
 
-    <script th:src="@{/js/jquery.min.js}"></script>
-    <script th:src="@{/js/popper.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/bundle.js}"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/bundle.js}"></script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]> -->
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]> -->
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script
+	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 </head>
 
 <body style="background-color: #f2f2f2;">
-<div class="container">
-    <div class="row" style="position: absolute;left: 20%;top: 20%;">
-     <div class="col-md-6 col-sm-12 col-xs-12">
-	     <center>
-	      <img th:src="@{/images/logo.png}" class="img-responsive center-block" width="200" height="200" alt="Logo"/>
-	     </center>     
-       </div>
-        <div class="col-md-6 col-sm-12 col-xs-12">
-            <form th:action="@{/login}" method="POST" class="form-signin">
-                <h4 class="form-signin-heading h1-custom" style="text-align: center;">SISTEM INFORMASI AKADEMIK SEKOLAH DASAR</h4>
-                <br/>
-                <input type="text" id="username" name="username" placeholder="Masukan NIP"
-                       class="form-control form-control-sm"/> <br/>
-                <input type="password" placeholder="Masukan password"
-                       id="password" name="password" class="form-control form-control-sm"/> <br/>
-
-                <div align="center" th:if="${param.error}">
-                    <p style="font-size: 20; color: #FF1C19;">NIP atau Password tidak sesuai, silahkan hubungi admin atau klick lupa password !</p>
-                </div>
-                <button class="btn btn-secondary btn-block btn-sm" name="Submit" value="Login" type="Submit"
-                        th:text="Masuk"></button>
-                <div align="left" style="margin-top: 20px;">
-                    <a href="#" style="font-size: 20; font-style: italic;">Lupa password</a>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+	<div class="container">
+		<div class="row" style="position: absolute; top: 5%;margin-left: 27%;margin-right: 27%;">
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<center>
+					<img th:src="@{/images/logo.png}"
+						class="img-responsive center-block" width="200" height="200"
+						alt="Logo" />
+					<form th:action="@{/login}" method="POST">
+						<h4 class="form-signin-heading h1-custom"
+							style="text-align: center;">SISTEM INFORMASI AKADEMIK
+							SEKOLAH DASAR</h4>
+						<br /> <input type="text" id="username" name="username"
+							placeholder="Masukan NIP" class="form-control form-control-sm" />
+						<br /> <input type="password" placeholder="Masukan password"
+							id="password" name="password"
+							class="form-control form-control-sm" /> <br />
+						<div align="center" th:if="${param.error}">
+							<p style="font-size: 20; color: #FF1C19;">NIP atau Password
+								tidak sesuai, silahkan hubungi admin atau klick lupa password !</p>
+						</div>
+						<button class="btn btn-secondary btn-block btn-sm" name="Submit"
+							value="Login" type="Submit" th:text="Masuk"></button>
+						<div align="left" style="margin-top: 20px;">
+							<a href="#" style="font-size: 20; font-style: italic;">Lupa
+								password</a>
+						</div>
+					</form>
+				</center>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 public class MapelEntity {
     private int idSekolah;
     private int idMapel;
+    private String kodeMapel;
     private String namaMapel;
     private String active;
     private Integer userCreated;
@@ -39,6 +40,16 @@ public class MapelEntity {
     }
 
     @Basic
+    @Column(name = "kode_mapel",length = 20)
+    public String getKodeMapel() {
+		return kodeMapel;
+	}
+
+	public void setKodeMapel(String kodeMapel) {
+		this.kodeMapel = kodeMapel;
+	}
+
+	@Basic
     @Column(name = "nama_mapel")
     public String getNamaMapel() {
         return namaMapel;

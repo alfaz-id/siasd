@@ -8,12 +8,19 @@ import java.sql.Timestamp;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * @author   mohirwanh@gmail.com
  * @web	     www.alfaz.id
  * @Date     Oct 20, 2019
  * @projects siasd @package com.alfazid.siasd.model
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CreatedAt {
 	 @Basic
      @Column(name = "id_sekolah")

@@ -30,6 +30,7 @@
                     <thead>
                     <tr>
                         <th>No</th>
+                        <th>Kode Mapel</th>
                         <th>Nama Mapel</th>
                         <th>Active</th>
                         <th style="text-align: center">#</th>
@@ -38,6 +39,7 @@
                     <tbody>
                     <tr th:each="items,iter : ${page.content}">
                         <td th:text="${(page.number) * page.size + iter.index + 1}"></td>
+                        <td th:text="${items.kodeMapel}"></td>
                         <td th:text="${items.namaMapel}"></td>
                         <td style="width: 50px;text-align: center" th:text="${items.active}"></td>
                         <td style="width: 50px;">

@@ -1,13 +1,21 @@
 package com.alfazid.siasd.controller;
 
+import com.alfazid.siasd.dto.KelasDto;
+import com.alfazid.siasd.dto.MapelDto;
+import com.alfazid.siasd.model.Kkm;
 import com.alfazid.siasd.model.SiswaEntity;
 import com.alfazid.siasd.repository.SiswaRepository;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,18 +24,38 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by www.alfaz.id mail : mohirwanh@gmail.com on 28/09/19.
  */
 @Controller
-@RequestMapping(name = "/siswa")
+@RequestMapping(value = "/siswa")
 public class SiswaController {
     @Autowired
     SiswaRepository siswaRepository;
     private int idSekolah=1;
 
-    @RequestMapping(value = {"", "/siswa"}, method = RequestMethod.GET)
-    public ModelAndView index(Model model, @PageableDefault(size = 10) Pageable pageable) {
+    @RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
+    public ModelAndView indexSiswa(Model model, @PageableDefault(size = 10) Pageable pageable) {
         Page<SiswaEntity> page = siswaRepository.findAll(pageable);
         model.addAttribute("page", page);
         return new ModelAndView("siswa/siswa-list");
     }
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create(Model model, SiswaEntity siswaEntity) {
+    	model.addAttribute("mode", "Create");
+		return new ModelAndView("siswa/siswa-create");
+	}
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public ModelAndView doCreate(ModelAndView modelAndView, Model model, @ModelAttribute("siswa") SiswaEntity siswa,
+			BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("mode", "Create");
+			modelAndView.setViewName("siswa/siswa-create");
+		} else {
+			model.addAttribute("mode", "Create");
+			siswa.setIdSekolah(idSekolah);
+			siswaRepository.save(siswa);
+			modelAndView.setViewName("redirect:/siswa");
+		}
+
+		return modelAndView;
+	}
 
 //    @RequestMapping(value ="/{by}/{value}",method = RequestMethod.GET)
 //    public ModelAndView  getByName(Model model,@PageableDefault(size = 10) Pageable pageable,@PathVariable String by,@PathVariable String value){

@@ -1,10 +1,653 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/layout">
 <body>
-
+	<div class="container-fluid" layout:fragment="content">
+		<div class="row">
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+				<div
+					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+					<h2>
+						Data Siswa <span th:text="${mode}"></span>
+					</h2>
+				</div>
+				<div class="col-sm-8 col-md-8 col-lg-8 col-xs-12">
+					<form action="#" th:action="@{/siswa/create}"
+						th:object="${siswaEntity}" method="POST">
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="nis">NIS <span
+								class="mandatory">*</span></label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm" th:field="*{nis}"
+									type="text" id="nis" name="nis"
+									placeholder="Masukan nomor izin siswa" maxlength="20" required>
+								<span th:if="${#fields.hasErrors('nis')}" th:errors="*{nis}"
+									class="text-danger">Isian tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="nisn">NISN <span
+								class="mandatory">*</span></label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm" th:field="*{nisn}"
+									type="text" id="nisn" name="nisn"
+									placeholder="Masukan nomor izin siswa nasional" maxlength="20"
+									required> <span th:if="${#fields.hasErrors('nisn')}"
+									th:errors="*{nisn}" class="text-danger">Isian tidak
+									boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="nisn">Nama
+								Peserta Didik <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{namaLengkap}" type="text" id="namaLengkap"
+									name="namaLengkap" placeholder="Masukan nama lengkap"
+									maxlength="50" required> <span
+									th:if="${#fields.hasErrors('namaLengkap')}"
+									th:errors="*{namaLengkap}" class="text-danger">Isian
+									tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="nisn">Nama
+								Pangilan <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{namaPanggilan}" type="text" id="namaPangggilan"
+									name="namaPanggilan" placeholder="Masukan nama panggilan"
+									maxlength="50" required> <span
+									th:if="${#fields.hasErrors('namaPanggilan')}"
+									th:errors="*{namaPanggilan}" class="text-danger">Isian
+									tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Jenis
+								Kelamin <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{jenisKelamin}" id="jenisKelamin"
+									name="jenisKelamin">
+									<option th:value="P">Pria</option>
+									<option th:value="W">Wanita</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Agama
+								<span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm" th:field="*{agama}"
+									id="agama" name="agama">
+									<option th:value="Islam">Islam</option>
+									<option th:value="Kristen">Kristen</option>
+									<option th:value="Katolik">Katolik</option>
+									<option th:value="Hindhu">Hindhu</option>
+									<option th:value="Budha">Budha</option>
+									<option th:value="Lainnya">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Kewarganegaraan
+								<span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{Kewarganegaraan}" id="Kewarganegaraan"
+									name="Kewarganegaraan">
+									<option th:value="WNI">WNI</option>
+									<option th:value="WNA">WNA</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="nisn">Tempat
+								Lahir <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{tempatLahir}" type="text" id="tempatLahir"
+									name="tempatLahir" placeholder="Masukan tempat lahir"
+									maxlength="50" required> <span
+									th:if="${#fields.hasErrors('tempatLahir')}"
+									th:errors="*{tempatLahir}" class="text-danger">Isian
+									tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="nisn">Tanggal
+								Lahir <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{tanggalLahir}" th:value="${#dates.createNow()}"
+									type="date" id="tanggalLahir" name="tanggalLahir"
+									placeholder="0000-00-00" maxlength="50" required> <span
+									th:if="${#fields.hasErrors('tanggalLahir')}"
+									th:errors="*{tanggalLahir}" class="text-danger">Isian
+									tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Pendidikan
+								Sebelumya <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{pendidikanSebelumnya}" id="pendidikanSebelumnya"
+									name="pendidikanSebelumnya">
+									<option th:value="PAUD">PAUD</option>
+									<option th:value="TK">TK</option>
+									<option th:value="Lainnya">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="nisn">Alamat
+								Siswa <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<textarea class="form-control form-control-sm"
+									th:field="*{alamatSiswa}" id="alamatSiswa" name="tanggalLahir"
+									placeholder="Masukan alamat tempat tinggal siswa" col="50"
+									row="10" required></textarea>
+								<span th:if="${#fields.hasErrors('alamatSiswa')}"
+									th:errors="*{alamatSiswa}" class="text-danger">Isian
+									tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="anakKe">Anak Ke</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{anakKe}" type="text" id="anakKe"
+									name="anakKe" placeholder="0" maxlength="2">
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="anakKe">Saudara Kandung</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{saudaraKandung}" type="text" id="saudaraKandung"
+									name="saudaraKandung" placeholder="0" maxlength="2">
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="anakKe">Saudara Tiri</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{saudaraTiri}" type="text" id="saudaraTiri"
+									name="saudaraTiri" placeholder="0" maxlength="2">
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="anakKe">Saudara Angkat</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{saudaraAngkat}" type="text" id="saudaraAngkat"
+									name="saudaraAngkat" placeholder="0" maxlength="2">
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="bahasaIbu">Bahasa Sehari-hari</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{idBahasaIbu}" id="idBahasaIbu" name="idBahasaIbu">
+									<!-- <option th:value="Y">Ya</option>
+									<option th:value="N">Tidak</option> -->
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="anakKe">Poto Siswa</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{photo}" type="file" id="photo"
+									name="photo">
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Active</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{active}" id="active" name="active">
+									<option th:value="Y">Ya</option>
+									<option th:value="N">Tidak</option>
+								</select>
+							</div>
+						</div>
+						<h5>Data Orang Tua</h5>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="namaAyah">Nama
+								Ayah <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{namaAyah}" type="text" id="namaAyah"
+									name="namaAyah" placeholder="Masukan nama ayah" maxlength="50"
+									required> <span
+									th:if="${#fields.hasErrors('namaAyah')}"
+									th:errors="*{namaAyah}" class="text-danger">Isian tidak
+									boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="nisn">Tanggal
+								Lahir Ayah<span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{tanggalLahirAyah}" th:value="${#dates.createNow()}"
+									type="date" id="tanggalLahir" name="tanggalLahirAyah"
+									placeholder="0000-00-00" maxlength="50" required> <span
+									th:if="${#fields.hasErrors('tanggalLahirAyah')}"
+									th:errors="*{tanggalLahirAyah}" class="text-danger">Isian
+									tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Agama
+								Ayah <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{agamaAyah}" id="agamaAyah" name="agamaAyah">
+									<option th:value="Islam">Islam</option>
+									<option th:value="Kristen">Kristen</option>
+									<option th:value="Katolik">Katolik</option>
+									<option th:value="Hindhu">Hindhu</option>
+									<option th:value="Budha">Budha</option>
+									<option th:value="Lainnya">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="pendidkan">Pendidikan
+								Ayah <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{pendidikanAyah}" id="pendidikanAyah"
+									name="pendidikanAyah">
+									<option th:value="SD">SD</option>
+									<option th:value="SMP">SMP</option>
+									<option th:value="SMA">SMA</option>
+									<option th:value="D1">D1</option>
+									<option th:value="D2">D2</option>
+									<option th:value="D3">D3</option>
+									<option th:value="S1">S1</option>
+									<option th:value="S2">S2</option>
+									<option th:value="S3">S3</option>
+									<option th:value="Doktor">Doktor</option>
+									<option th:value="Profesonr">Profesor</option>
+									<option th:value="TidakSekolah">Tidak Sekolah</option>
+									<option th:value="Lainnya">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="pekerjaanAyah">Pekerjaan
+								Ayah <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{pekerjaanAyah}" id="pekerjaanAyah"
+									name="pekerjaanAyah">
+									<option th:value="PAUD">PAUD</option>
+									<option th:value="TK">TK</option>
+									<option th:value="Lainnya">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<!--  data ibu -->
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="namaAyah">Nama
+								Ibu <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{namaIbu}" type="text" id="namaIbu" name="namaIbu"
+									placeholder="Masukan nama ibu" maxlength="50" required>
+								<span th:if="${#fields.hasErrors('namaIbu')}"
+									th:errors="*{namaIbu}" class="text-danger">Isian tidak
+									boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="tanggalLahirIbu">Tanggal
+								Lahir Ibu<span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{tanggalLahirIbu}" th:value="${#dates.createNow()}"
+									type="date" id="tanggalLahirIbu" name="tanggalLahirAyah"
+									placeholder="0000-00-00" maxlength="50" required> <span
+									th:if="${#fields.hasErrors('tanggalLahirIbu')}"
+									th:errors="*{tanggalLahirIbu}" class="text-danger">Isian
+									tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Agama
+								Ibu <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{agamaIbu}" id="agamaAyah" name="agamaIbu">
+									<option th:value="Islam">Islam</option>
+									<option th:value="Kristen">Kristen</option>
+									<option th:value="Katolik">Katolik</option>
+									<option th:value="Hindhu">Hindhu</option>
+									<option th:value="Budha">Budha</option>
+									<option th:value="Lainnya">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Pendidikan
+								Ibu <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{pendidikanIbu}" id="pendidikanIbu"
+									name="pendidikanIbu">
+									<option th:value="SD">SD</option>
+									<option th:value="SMP">SMP</option>
+									<option th:value="SMA">SMA</option>
+									<option th:value="D1">D1</option>
+									<option th:value="D2">D2</option>
+									<option th:value="D3">D3</option>
+									<option th:value="S1">S1</option>
+									<option th:value="S2">S2</option>
+									<option th:value="S3">S3</option>
+									<option th:value="Doktor">Doktor</option>
+									<option th:value="Profesonr">Profesor</option>
+									<option th:value="TidakSekolah">Tidak Sekolah</option>
+									<option th:value="Lainnya">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Pekerjaan
+								Ibu <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{pekerjaanIbu}" id="pekerjaanIbu"
+									name="pekerjaanIbu">
+									<!-- <option th:value="PAUD">PAUD</option>
+                                <option th:value="TK">TK</option>
+                                <option th:value="Lainnya">Lainnya</option> -->
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="alamatOrangtua">Alamat
+								Orang Tua <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<textarea class="form-control form-control-sm"
+									th:field="*{alamatOrangtua}" id="alamatOrangTua"
+									name="alamatOrangTua"
+									placeholder="Masukan alamat tempat tinggal orang tua" col="50"
+									row="10" required></textarea>
+								<span th:if="${#fields.hasErrors('alamatOrangtua')}"
+									th:errors="*{alamatOrangtua}" class="text-danger">Isian
+									tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="teleponOrangtua">Telepon Orang Tua 
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{teleponOrangtua}"
+									type="text" id="teleponOrangTua" name="teleponOrangTua"
+									placeholder="00000000" maxlength="50"> <span
+									th:if="${#fields.hasErrors('teleponOrangtua')}"
+									th:errors="*{teleponOrangtua}" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+						<label class="control-label col-sm-3">Provinsi <span class="mandatory">*</span></label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{idProvinsi}" id="idProvinsi"
+									name="idProvinsi">
+									<!-- <option th:value="PAUD">PAUD</option>
+                                <option th:value="TK">TK</option>
+                                <option th:value="Lainnya">Lainnya</option> -->
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+						<label class="control-label col-sm-3">Kabupaten <span class="mandatory">*</span></label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{idKabupaten}" id="idKabupaten"
+									name="idKabupaten">
+									<!-- <option th:value="PAUD">PAUD</option>
+                                <option th:value="TK">TK</option>
+                                <option th:value="Lainnya">Lainnya</option> -->
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+						<label class="control-label col-sm-3">Kecamatan <span class="mandatory">*</span></label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{idKecamatan}" id="idKecamatan"
+									name="idKecamatan">
+									<!-- <option th:value="PAUD">PAUD</option>
+                                <option th:value="TK">TK</option>
+                                <option th:value="Lainnya">Lainnya</option> -->
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+						<label class="control-label col-sm-3">Desa <span class="mandatory">*</span></label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{idDesa}" id="idDesa"
+									name="idDesa">
+									<!-- <option th:value="PAUD">PAUD</option>
+                                <option th:value="TK">TK</option>
+                                <option th:value="Lainnya">Lainnya</option> -->
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="kodepos">Kodepos
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{kodepos}"
+									type="text" id="kodepos" name="kodepos"
+									placeholder="00000" maxlength="50"> <span
+									th:if="${#fields.hasErrors('kodepos')}"
+									th:errors="*{kodepos}" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="rt">RT/RW
+							</label>
+							<div class="col-sm-3">
+								<input class="form-control form-control-sm"
+									th:field="*{rt}"
+									type="text" id="rw" name="rt"
+									placeholder="RT" maxlength="50"> <span
+									th:if="${#fields.hasErrors('rt')}"
+									th:errors="*{rw}" class="text-danger"></span>
+							</div>
+							<div class="col-sm-3">
+								<input class="form-control form-control-sm"
+									th:field="*{rw}"
+									type="text" id="rw" name="rw"
+									placeholder="RW" maxlength="50"> <span
+									th:if="${#fields.hasErrors('rw')}"
+									th:errors="*{rw}" class="text-danger"></span>
+							</div>
+						</div>
+						<h5>Data Wali Murid</h5>
+												<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="namaWali">Nama
+								Wali <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{namaIbu}" type="text" id="namaWali" name="namaWali"
+									placeholder="Masukan nama wali" maxlength="50" required>
+								<span th:if="${#fields.hasErrors('namaWali')}"
+									th:errors="*{namaWali}" class="text-danger">Isian tidak
+									boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="tanggalLahirIbu">Tanggal
+								Lahir Wali<span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{tanggalLahirWali}" th:value="${#dates.createNow()}"
+									type="date" id="tanggalLahirWali" name="tanggalLahirWali"
+									placeholder="0000-00-00" maxlength="50" required> <span
+									th:if="${#fields.hasErrors('tanggalLahirWali')}"
+									th:errors="*{tanggalLahirWali}" class="text-danger">Isian
+									tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Agama
+								Wali <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{agamaWali}" id="agamaWali" name="agamaWali">
+									<option th:value="Islam">Islam</option>
+									<option th:value="Kristen">Kristen</option>
+									<option th:value="Katolik">Katolik</option>
+									<option th:value="Hindhu">Hindhu</option>
+									<option th:value="Budha">Budha</option>
+									<option th:value="Lainnya">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Pendidikan
+								Wali <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{pendidikanWali}" id="pendidikanWali"
+									name="pendidikanWali">
+									<option th:value="SD">SD</option>
+									<option th:value="SMP">SMP</option>
+									<option th:value="SMA">SMA</option>
+									<option th:value="D1">D1</option>
+									<option th:value="D2">D2</option>
+									<option th:value="D3">D3</option>
+									<option th:value="S1">S1</option>
+									<option th:value="S2">S2</option>
+									<option th:value="S3">S3</option>
+									<option th:value="Doktor">Doktor</option>
+									<option th:value="Profesonr">Profesor</option>
+									<option th:value="TidakSekolah">Tidak Sekolah</option>
+									<option th:value="Lainnya">Lainnya</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="active">Pekerjaan
+								Wali <span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{pekerjaanWali}" id="pekerjaanWali"
+									name="pekerjaanWali">
+									<!-- <option th:value="PAUD">PAUD</option>
+                                <option th:value="TK">TK</option>
+                                <option th:value="Lainnya">Lainnya</option> -->
+								</select>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="alamatWali">Alamat
+								Wali<span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<textarea class="form-control form-control-sm"
+									th:field="*{alamatWali}" id="alamatWali"
+									name="alamatWali"
+									placeholder="Masukan alamat tempat tinggal wali murid" col="50"
+									row="10" required></textarea>
+								<span th:if="${#fields.hasErrors('alamatWali')}"
+									th:errors="*{alamatWali}" class="text-danger">Isian
+									tidak boleh kosong</span>
+							</div>
+						</div>
+						<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="teleponWali">Telepon Wali Murid
+							</label>
+							<div class="col-sm-6">
+								<input class="form-control form-control-sm"
+									th:field="*{teleponWali}"
+									type="text" id="teleponWali" name="teleponWali"
+									placeholder="00000000" maxlength="15"> <span
+									th:if="${#fields.hasErrors('teleponWali')}"
+									th:errors="*{teleponWali}" class="text-danger"></span>
+							</div>
+						</div>
+							<div class="form-group row has-success">
+							<label class="control-label col-sm-3" for="hubunganDenganKeluarga">Hubungan Dengan Keluarga
+								<span class="mandatory">*</span>
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control form-control-sm"
+									th:field="*{hubunganDenganKeluarga}" id="hubunganDenganKeluarga"
+									name="hubunganDenganKeluarga">
+									<!-- <option th:value="SD">SD</option>
+									<option th:value="SMP">SMP</option>
+									<option th:value="SMA">SMA</option>
+									<option th:value="D1">D1</option>
+									<option th:value="D2">D2</option>
+									<option th:value="D3">D3</option>
+									<option th:value="S1">S1</option>
+									<option th:value="S2">S2</option>
+									<option th:value="S3">S3</option>
+									<option th:value="Doktor">Doktor</option>
+									<option th:value="Profesonr">Profesor</option>
+									<option th:value="TidakSekolah">Tidak Sekolah</option>
+									<option th:value="Lainnya">Lainnya</option> -->
+								</select>
+							</div>
+						</div>
+						
+						
+						<div class="">
+							<div class="col-sm-6" style="float: right;">
+								<a class="btn btn-sm btn-secondary" href="/siswa/"> Batal </a> <input
+									type="submit" class="btn btn-secondary btn-sm" value="Simpan"
+									id="btnSimpan" />
+							</div>
+						</div>
+					</form>
+				</div>
+			</main>
+		</div>
+	</div>
 </body>
 </html>

@@ -11,8 +11,9 @@
                     <div class="mr-2">
                         <select class="form-control form-control-sm" id="by" name="by">
                             <option th:value="All">All</option>
-                            <option th:value="Nama">Mapel</option>
-                            <option th:value="Active">Active</option>
+                            <option th:value="b.nama_mapel">Mapel</option>
+                            <option th:value="c.nama_kelas">Kelas</option>
+                            <option th:value="a.active">Active</option>
                         </select>
                     </div>
                     <div class="btn-group mr-2">
@@ -39,17 +40,20 @@
                     </tr>
                     </thead>
                     <tbody>
-             <!--        <tr th:each="items,iter : ${page.content}">
+                  <tr th:each="items,iter : ${page.content}">
                         <td th:text="${(page.number) * page.size + iter.index + 1}"></td>
-                        <td th:text="${items.namaJenisNilai}"></td>
+                        <td th:text="${items.namaKelas}"></td>
+                        <td th:text="${items.namaMapel}"></td>
+                        <td th:text="${items.nilaiKkm}"></td>
+                        <td th:text="${items.predikat}"></td>
                         <td style="width: 50px;text-align: center" th:text="${items.active}"></td>
                         <td style="width: 50px;">
-                            <a th:href="@{/jenis-nilai/update/{id}(id=${items.idJenisNilai})}" style="padding: 3px;"><span
+                            <a th:href="@{/kkm/update/{id}(id=${items.idKkm})}" style="padding: 3px;"><span
                                     class="fa fa-pencil"></span></a>
-                            <a th:href="@{/jenis-nilai/delete/{id}(id=${items.idJenisNilai})}" style="padding: 3px;"><span
+                            <a th:href="@{/kkm/delete/{id}(id=${items.idKkm})}" style="padding: 3px;"><span
                                     class="fa fa-trash"></span></a>
                         </td>
-                    </tr> -->
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -75,7 +79,7 @@
                     function onRefresh() {
                         var page = document.getElementById("size").value;
                         var txtCurrent = document.getElementById("txtCurrent").value;
-                        window.location = "/jenis-nilai?page=" + txtCurrent + "&size=" + page;
+                        window.location = "/kkm?page=" + txtCurrent + "&size=" + page;
                     }
                     function onSearch() {
                         var page = document.getElementById("size").value;

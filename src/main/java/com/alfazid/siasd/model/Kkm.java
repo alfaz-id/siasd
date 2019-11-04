@@ -3,6 +3,8 @@
  */
 package com.alfazid.siasd.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,9 +21,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- * @author   mohirwanh@gmail.com
- * @web	     www.alfaz.id
- * @Date     Oct 20, 2019
+ * @author mohirwanh@gmail.com
+ * @web www.alfaz.id
+ * @Date Oct 20, 2019
  * @projects siasd @package com.alfazid.siasd.model
  */
 @Data
@@ -31,26 +33,41 @@ import lombok.ToString;
 @Entity
 @Table(name = "kkm")
 @ToString
-public class Kkm extends CreatedAt {
+public class Kkm {
 	@Id
 	@Basic
-	@Column(name = "id_kkm",nullable = false,length = 11)
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_kkm", nullable = false, length = 11)
 	private int idKkm;
 	@Basic
-	@Column(name = "id_mapel",nullable = false,length = 11)
+	@Column(name = "id_mapel", nullable = false, length = 11)
 	private int idMapel;
 	@Basic
-	@Column(name = "id_kelas",nullable = false,length = 11)
-	private int id_kelas;
+	@Column(name = "id_kelas", nullable = false, length = 11)
+	private int idKelas;
 	@Basic
-	@Column(name = "nilai_kkm",nullable = false,length = 3)
-	@NotEmpty
+	@Column(name = "nilai_kkm", nullable = false, length = 3)
 	private int nilaiKkm;
 	@Basic
-	@Column(name = "predikat",nullable = false,length = 1)
+	@Column(name = "predikat", nullable = false, length = 1)
 	@NotEmpty
 	private String predikat;
-	
+	@Basic
+	@Column(name = "id_sekolah")
+	private int idSekolah;
+	@Basic
+	@Column(name = "active")
+	private String active;
+	@Basic
+	@Column(name = "user_created")
+	private Integer userCreated;
+	@Basic
+	@Column(name = "timestamp_created")
+	private Timestamp timestampCreated;
+	@Basic
+	@Column(name = "user_update")
+	private Integer userUpdated;
+	@Basic
+	@Column(name = "timestamp_update")
+	private Timestamp timestampUpdate;
 
 }

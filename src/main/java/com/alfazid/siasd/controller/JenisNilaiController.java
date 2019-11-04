@@ -93,14 +93,13 @@ public class JenisNilaiController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "/delete/{id}",method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete/{id}",method = RequestMethod.GET)
 	public ModelAndView doDelete(Model model,@PathVariable("id") int id){
 		Optional<JenisNilai> jeniNilai = jenisNilaiRepository.findById(id);
 		if(jeniNilai.isPresent()) {
 			JenisNilai jenisNilais = jeniNilai.get();
 			jenisNilais.setActive("N");
 			jenisNilaiRepository.save(jenisNilais);
-			model.addAttribute("jenisNilai", jenisNilais);
 		}
 		return new ModelAndView ("redirect:/jenis-nilai");
 	}

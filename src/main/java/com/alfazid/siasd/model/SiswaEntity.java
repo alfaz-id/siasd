@@ -1,8 +1,13 @@
 package com.alfazid.siasd.model;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Date;
 import java.sql.Timestamp;
 
@@ -10,7 +15,7 @@ import java.sql.Timestamp;
  * Created by cigist on 04/08/19.
  */
 @Entity
-@javax.persistence.Table(name = "siswa", schema = "")
+@Table(name = "siswa", schema = "")
 public class SiswaEntity {
     private int idSekolah;
 
@@ -144,6 +149,7 @@ public class SiswaEntity {
         this.tempatLahir = tempatLahir;
     }
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date tanggalLahir;
 
     @Basic
@@ -155,78 +161,19 @@ public class SiswaEntity {
     public void setTanggalLahir(Date tanggalLahir) {
         this.tanggalLahir = tanggalLahir;
     }
-
-    private String statusDalamKeluarga;
-
-    @Basic
-    @javax.persistence.Column(name = "status_dalam_keluarga")
-    public String getStatusDalamKeluarga() {
-        return statusDalamKeluarga;
-    }
-
-    public void setStatusDalamKeluarga(String statusDalamKeluarga) {
-        this.statusDalamKeluarga = statusDalamKeluarga;
-    }
-
-    private int anakKe;
+    
+    private String pendidikanSebelumnya;
 
     @Basic
-    @javax.persistence.Column(name = "anak_ke")
-    public int getAnakKe() {
-        return anakKe;
+    @javax.persistence.Column(name = "pendidikan_sebelumnya")
+    public String getPendidikanSebelumnya() {
+        return pendidikanSebelumnya;
     }
 
-    public void setAnakKe(int anakKe) {
-        this.anakKe = anakKe;
+    public void setPendidikanSebelumnya(String pendidikanSebelumnya) {
+        this.pendidikanSebelumnya = pendidikanSebelumnya;
     }
-
-    private Integer saudaraKandung;
-
-    @Basic
-    @javax.persistence.Column(name = "saudara_kandung")
-    public Integer getSaudaraKandung() {
-        return saudaraKandung;
-    }
-
-    public void setSaudaraKandung(Integer saudaraKandung) {
-        this.saudaraKandung = saudaraKandung;
-    }
-
-    private Integer saudaraTiri;
-
-    @Basic
-    @javax.persistence.Column(name = "saudara_tiri")
-    public Integer getSaudaraTiri() {
-        return saudaraTiri;
-    }
-
-    public void setSaudaraTiri(Integer saudaraTiri) {
-        this.saudaraTiri = saudaraTiri;
-    }
-
-    private Integer saudaraAngkat;
-
-    @Basic
-    @javax.persistence.Column(name = "saudara_angkat")
-    public Integer getSaudaraAngkat() {
-        return saudaraAngkat;
-    }
-
-    public void setSaudaraAngkat(Integer saudaraAngkat) {
-        this.saudaraAngkat = saudaraAngkat;
-    }
-
-    private Integer idBahasaIbu;
-
-    @Basic
-    @javax.persistence.Column(name = "id_bahasa_ibu")
-    public Integer getIdBahasaIbu() {
-        return idBahasaIbu;
-    }
-
-    public void setIdBahasaIbu(Integer idBahasaIbu) {
-        this.idBahasaIbu = idBahasaIbu;
-    }
+    
 
     private String alamatSiswa;
 
@@ -239,91 +186,6 @@ public class SiswaEntity {
     public void setAlamatSiswa(String alamatSiswa) {
         this.alamatSiswa = alamatSiswa;
     }
-
-    private String teleponSiswa;
-
-    @Basic
-    @javax.persistence.Column(name = "telepon_siswa")
-    public String getTeleponSiswa() {
-        return teleponSiswa;
-    }
-
-    public void setTeleponSiswa(String teleponSiswa) {
-        this.teleponSiswa = teleponSiswa;
-    }
-
-    private String tinggalBersama;
-
-    @Basic
-    @javax.persistence.Column(name = "tinggal_bersama")
-    public String getTinggalBersama() {
-        return tinggalBersama;
-    }
-
-    public void setTinggalBersama(String tinggalBersama) {
-        this.tinggalBersama = tinggalBersama;
-    }
-
-    private Float jarakTempatTinggalKeSekolah;
-
-    @Basic
-    @javax.persistence.Column(name = "jarak_tempat_tinggal_ke_sekolah")
-    public Float getJarakTempatTinggalKeSekolah() {
-        return jarakTempatTinggalKeSekolah;
-    }
-
-    public void setJarakTempatTinggalKeSekolah(Float jarakTempatTinggalKeSekolah) {
-        this.jarakTempatTinggalKeSekolah = jarakTempatTinggalKeSekolah;
-    }
-
-    private String pendidikanSebelumnya;
-
-    @Basic
-    @javax.persistence.Column(name = "pendidikan_sebelumnya")
-    public String getPendidikanSebelumnya() {
-        return pendidikanSebelumnya;
-    }
-
-    public void setPendidikanSebelumnya(String pendidikanSebelumnya) {
-        this.pendidikanSebelumnya = pendidikanSebelumnya;
-    }
-
-    private String asalSekolah;
-
-    @Basic
-    @javax.persistence.Column(name = "asal_sekolah")
-    public String getAsalSekolah() {
-        return asalSekolah;
-    }
-
-    public void setAsalSekolah(String asalSekolah) {
-        this.asalSekolah = asalSekolah;
-    }
-
-    private Date tanggalMasuk;
-
-    @Basic
-    @javax.persistence.Column(name = "tanggal_masuk")
-    public Date getTanggalMasuk() {
-        return tanggalMasuk;
-    }
-
-    public void setTanggalMasuk(Date tanggalMasuk) {
-        this.tanggalMasuk = tanggalMasuk;
-    }
-
-    private int kelasAwal;
-
-    @Basic
-    @javax.persistence.Column(name = "kelas_awal")
-    public int getKelasAwal() {
-        return kelasAwal;
-    }
-
-    public void setKelasAwal(int kelasAwal) {
-        this.kelasAwal = kelasAwal;
-    }
-
     private String namaAyah;
 
     @Basic
@@ -455,7 +317,18 @@ public class SiswaEntity {
     public void setAlamatOrangtua(String alamatOrangtua) {
         this.alamatOrangtua = alamatOrangtua;
     }
+    private String teleponOrangtua;
 
+    @Basic
+    @Column(name = "telepon_orangtua")
+    public String getTeleponOrangtua() {
+        return teleponOrangtua;
+    }
+
+    public void setTeleponOrangtua(String teleponOrangtua) {
+        this.teleponOrangtua = teleponOrangtua;
+    }
+    
     private Integer idDesa;
 
     @Basic
@@ -504,19 +377,40 @@ public class SiswaEntity {
         this.idProvinsi = idProvinsi;
     }
 
-    private String teleponOrangtua;
-
     @Basic
-    @javax.persistence.Column(name = "telepon_orangtua")
-    public String getTeleponOrangtua() {
-        return teleponOrangtua;
-    }
+    @Column(name = "kodepos")
+    private int kodepos;
+   
+    public int getKodepos() {
+		return kodepos;
+	}
 
-    public void setTeleponOrangtua(String teleponOrangtua) {
-        this.teleponOrangtua = teleponOrangtua;
-    }
+	public void setKodepos(int kodepos) {
+		this.kodepos = kodepos;
+	}
+	@Basic
+    @Column(name = "rt")
+    private int rt;
+	public int getRt() {
+		return rt;
+	}
 
-    private String namaWali;
+	public void setRt(int rt) {
+		this.rt = rt;
+	}
+	@Basic
+    @Column(name = "rw")
+    private int rw;
+	
+	public int getRw() {
+		return rw;
+	}
+
+	public void setRw(int rw) {
+		this.rw = rw;
+	}
+
+	private String namaWali;
 
     @Basic
     @javax.persistence.Column(name = "nama_wali")
@@ -588,6 +482,19 @@ public class SiswaEntity {
         this.alamatWali = alamatWali;
     }
 
+    private String teleponWali;
+
+    @Basic
+    @javax.persistence.Column(name = "telepon_wali")
+    public String getTeleponWali() {
+        return teleponWali;
+    }
+
+    public void setTeleponWali(String teleponWali) {
+        this.teleponWali = teleponWali;
+    }
+
+    
     private String hubunganDenganKeluarga;
 
     @Basic
@@ -598,6 +505,67 @@ public class SiswaEntity {
 
     public void setHubunganDenganKeluarga(String hubunganDenganKeluarga) {
         this.hubunganDenganKeluarga = hubunganDenganKeluarga;
+    }
+
+
+    private int anakKe;
+
+    @Basic
+    @javax.persistence.Column(name = "anak_ke")
+    public int getAnakKe() {
+        return anakKe;
+    }
+
+    public void setAnakKe(int anakKe) {
+        this.anakKe = anakKe;
+    }
+
+    private Integer saudaraKandung;
+
+    @Basic
+    @javax.persistence.Column(name = "saudara_kandung")
+    public Integer getSaudaraKandung() {
+        return saudaraKandung;
+    }
+
+    public void setSaudaraKandung(Integer saudaraKandung) {
+        this.saudaraKandung = saudaraKandung;
+    }
+
+    private Integer saudaraTiri;
+
+    @Basic
+    @javax.persistence.Column(name = "saudara_tiri")
+    public Integer getSaudaraTiri() {
+        return saudaraTiri;
+    }
+
+    public void setSaudaraTiri(Integer saudaraTiri) {
+        this.saudaraTiri = saudaraTiri;
+    }
+
+    private Integer saudaraAngkat;
+
+    @Basic
+    @javax.persistence.Column(name = "saudara_angkat")
+    public Integer getSaudaraAngkat() {
+        return saudaraAngkat;
+    }
+
+    public void setSaudaraAngkat(Integer saudaraAngkat) {
+        this.saudaraAngkat = saudaraAngkat;
+    }
+
+    private Integer idBahasaIbu;
+
+    @Basic
+    @javax.persistence.Column(name = "id_bahasa_ibu")
+    public Integer getIdBahasaIbu() {
+        return idBahasaIbu;
+    }
+
+    public void setIdBahasaIbu(Integer idBahasaIbu) {
+        this.idBahasaIbu = idBahasaIbu;
     }
 
     private String photo;
@@ -611,7 +579,8 @@ public class SiswaEntity {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
-
+    
+    
     private String active;
 
     @Basic
@@ -683,7 +652,6 @@ public class SiswaEntity {
         if (idSiswa != that.idSiswa) return false;
         if (idKelas != that.idKelas) return false;
         if (anakKe != that.anakKe) return false;
-        if (kelasAwal != that.kelasAwal) return false;
         if (nis != null ? !nis.equals(that.nis) : that.nis != null) return false;
         if (nisn != null ? !nisn.equals(that.nisn) : that.nisn != null) return false;
         if (namaLengkap != null ? !namaLengkap.equals(that.namaLengkap) : that.namaLengkap != null) return false;
@@ -695,8 +663,6 @@ public class SiswaEntity {
             return false;
         if (tempatLahir != null ? !tempatLahir.equals(that.tempatLahir) : that.tempatLahir != null) return false;
         if (tanggalLahir != null ? !tanggalLahir.equals(that.tanggalLahir) : that.tanggalLahir != null) return false;
-        if (statusDalamKeluarga != null ? !statusDalamKeluarga.equals(that.statusDalamKeluarga) : that.statusDalamKeluarga != null)
-            return false;
         if (saudaraKandung != null ? !saudaraKandung.equals(that.saudaraKandung) : that.saudaraKandung != null)
             return false;
         if (saudaraTiri != null ? !saudaraTiri.equals(that.saudaraTiri) : that.saudaraTiri != null) return false;
@@ -704,15 +670,6 @@ public class SiswaEntity {
             return false;
         if (idBahasaIbu != null ? !idBahasaIbu.equals(that.idBahasaIbu) : that.idBahasaIbu != null) return false;
         if (alamatSiswa != null ? !alamatSiswa.equals(that.alamatSiswa) : that.alamatSiswa != null) return false;
-        if (teleponSiswa != null ? !teleponSiswa.equals(that.teleponSiswa) : that.teleponSiswa != null) return false;
-        if (tinggalBersama != null ? !tinggalBersama.equals(that.tinggalBersama) : that.tinggalBersama != null)
-            return false;
-        if (jarakTempatTinggalKeSekolah != null ? !jarakTempatTinggalKeSekolah.equals(that.jarakTempatTinggalKeSekolah) : that.jarakTempatTinggalKeSekolah != null)
-            return false;
-        if (pendidikanSebelumnya != null ? !pendidikanSebelumnya.equals(that.pendidikanSebelumnya) : that.pendidikanSebelumnya != null)
-            return false;
-        if (asalSekolah != null ? !asalSekolah.equals(that.asalSekolah) : that.asalSekolah != null) return false;
-        if (tanggalMasuk != null ? !tanggalMasuk.equals(that.tanggalMasuk) : that.tanggalMasuk != null) return false;
         if (namaAyah != null ? !namaAyah.equals(that.namaAyah) : that.namaAyah != null) return false;
         if (tanggalLahirAyah != null ? !tanggalLahirAyah.equals(that.tanggalLahirAyah) : that.tanggalLahirAyah != null)
             return false;
@@ -773,20 +730,12 @@ public class SiswaEntity {
         result = 31 * result + (kewarganegaraan != null ? kewarganegaraan.hashCode() : 0);
         result = 31 * result + (tempatLahir != null ? tempatLahir.hashCode() : 0);
         result = 31 * result + (tanggalLahir != null ? tanggalLahir.hashCode() : 0);
-        result = 31 * result + (statusDalamKeluarga != null ? statusDalamKeluarga.hashCode() : 0);
         result = 31 * result + anakKe;
         result = 31 * result + (saudaraKandung != null ? saudaraKandung.hashCode() : 0);
         result = 31 * result + (saudaraTiri != null ? saudaraTiri.hashCode() : 0);
         result = 31 * result + (saudaraAngkat != null ? saudaraAngkat.hashCode() : 0);
         result = 31 * result + (idBahasaIbu != null ? idBahasaIbu.hashCode() : 0);
         result = 31 * result + (alamatSiswa != null ? alamatSiswa.hashCode() : 0);
-        result = 31 * result + (teleponSiswa != null ? teleponSiswa.hashCode() : 0);
-        result = 31 * result + (tinggalBersama != null ? tinggalBersama.hashCode() : 0);
-        result = 31 * result + (jarakTempatTinggalKeSekolah != null ? jarakTempatTinggalKeSekolah.hashCode() : 0);
-        result = 31 * result + (pendidikanSebelumnya != null ? pendidikanSebelumnya.hashCode() : 0);
-        result = 31 * result + (asalSekolah != null ? asalSekolah.hashCode() : 0);
-        result = 31 * result + (tanggalMasuk != null ? tanggalMasuk.hashCode() : 0);
-        result = 31 * result + kelasAwal;
         result = 31 * result + (namaAyah != null ? namaAyah.hashCode() : 0);
         result = 31 * result + (tanggalLahirAyah != null ? tanggalLahirAyah.hashCode() : 0);
         result = 31 * result + (agamaAyah != null ? agamaAyah.hashCode() : 0);
