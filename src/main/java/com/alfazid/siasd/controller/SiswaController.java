@@ -2,8 +2,12 @@ package com.alfazid.siasd.controller;
 
 import com.alfazid.siasd.dto.KelasDto;
 import com.alfazid.siasd.dto.MapelDto;
+import com.alfazid.siasd.model.GlobalEntity;
 import com.alfazid.siasd.model.Kkm;
+import com.alfazid.siasd.model.ProvinsiEntity;
 import com.alfazid.siasd.model.SiswaEntity;
+import com.alfazid.siasd.repository.MstGlobalRepository;
+import com.alfazid.siasd.repository.ProvinsiRepository;
 import com.alfazid.siasd.repository.SiswaRepository;
 
 import java.util.List;
@@ -27,7 +31,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/siswa")
 public class SiswaController {
     @Autowired
-    SiswaRepository siswaRepository;
+    private SiswaRepository siswaRepository;
+    @Autowired
+    private MstGlobalRepository globalRepository;
+    @Autowired
+    private ProvinsiRepository provinsiRepository;
     private int idSekolah=1;
 
     @RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
@@ -38,6 +46,11 @@ public class SiswaController {
     }
     @RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create(Model model, SiswaEntity siswaEntity) {
+    	List<GlobalEntity> globalEntities = globalRepository.findByTypeMaster("JOB");
+    	List<ProvinsiEntity>provinsiEntities = provinsiRepository.findProvinsi();
+    	
+    	model.addAttribute("globalEntities", globalEntities);
+    	model.addAttribute("provinsiEntities", provinsiEntities);
     	model.addAttribute("mode", "Create");
 		return new ModelAndView("siswa/siswa-create");
 	}

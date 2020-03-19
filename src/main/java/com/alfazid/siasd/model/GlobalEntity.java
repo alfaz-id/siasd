@@ -7,10 +7,11 @@ import java.sql.Timestamp;
  * Created by cigist on 04/08/19.
  */
 @Entity
-@Table(name = "global", schema = "", catalog = "sipnr")
+@Table(name = "global")
 public class GlobalEntity {
     private int idGlobal;
     private String kodeGlobal;
+    private String typeMaster;
     private String keterangan;
     private String active;
     private Integer userCreated;
@@ -39,6 +40,16 @@ public class GlobalEntity {
     }
 
     @Basic
+    @Column(name = "type_master")
+    public String getTypeMaster() {
+		return typeMaster;
+	}
+
+	public void setTypeMaster(String typeMaster) {
+		this.typeMaster = typeMaster;
+	}
+
+	@Basic
     @Column(name = "keterangan")
     public String getKeterangan() {
         return keterangan;
