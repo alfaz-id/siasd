@@ -1,6 +1,6 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.model.KelasSiswaEntity;
+import com.alfazid.siasd.model.entity.KelasSiswaEntity;
 import com.alfazid.siasd.repository.KelasSiswaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

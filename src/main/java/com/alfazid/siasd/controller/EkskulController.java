@@ -1,6 +1,6 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.model.EkskulEntity;
+import com.alfazid.siasd.model.entity.EkskulEntity;
 import com.alfazid.siasd.repository.EkskulRepository;
 import com.alfazid.siasd.utilities.RestError;
 import org.springframework.beans.factory.annotation.Autowired;

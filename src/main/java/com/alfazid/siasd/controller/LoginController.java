@@ -1,7 +1,7 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.model.GuruEntity;
-import com.alfazid.siasd.model.User;
+import com.alfazid.siasd.model.entity.GuruEntity;
+import com.alfazid.siasd.model.entity.User;
 import com.alfazid.siasd.repository.GuruRepository;
 import com.alfazid.siasd.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.alfazid.siasd.repository;
 
-import com.alfazid.siasd.model.RandomCity;
+import com.alfazid.siasd.model.entity.RandomCity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

@@ -1,7 +1,7 @@
 package com.alfazid.siasd.repository;
 
-import com.alfazid.siasd.model.MapelEntity;
-import com.alfazid.siasd.dto.MapelDto;
+import com.alfazid.siasd.model.entity.MapelEntity;
+import com.alfazid.siasd.model.dto.MapelDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,7 +24,7 @@ public interface MapelRepository extends JpaRepository<MapelEntity,Integer>,Pagi
     @Query(value = "SELECT c FROM MapelEntity c WHERE c.idSekolah=:idSekolah")
     Page<MapelEntity> findAll(Pageable pageable, @Param("idSekolah") int idSekolah);
 
-    @Query(value = "SELECT new com.alfazid.siasd.dto.MapelDto (c.idMapel,c.namaMapel) FROM MapelEntity c WHERE c.idSekolah=:idSekolah")
+    @Query(value = "SELECT new com.alfazid.siasd.model.dto.MapelDto (c.idMapel,c.namaMapel) FROM MapelEntity c WHERE c.idSekolah=:idSekolah")
     List<MapelDto> findMapel(@Param("idSekolah") int idSekolah);
 
 }

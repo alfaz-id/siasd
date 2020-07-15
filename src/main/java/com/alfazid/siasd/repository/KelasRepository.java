@@ -1,7 +1,7 @@
 package com.alfazid.siasd.repository;
 
-import com.alfazid.siasd.model.KelasEntity;
-import com.alfazid.siasd.dto.KelasDto;
+import com.alfazid.siasd.model.entity.KelasEntity;
+import com.alfazid.siasd.model.dto.KelasDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,7 +24,7 @@ public interface KelasRepository extends JpaRepository<KelasEntity,Integer>,Pagi
     @Query(value = "SELECT c FROM KelasEntity c WHERE c.idSekolah=:idSekolah")
     Page<KelasEntity> findAll(Pageable pageable, @Param("idSekolah") int idSekolah);
 
-    @Query(value = "SELECT new com.alfazid.siasd.dto.KelasDto (c.idKelas,c.namaKelas) FROM KelasEntity c WHERE c.idSekolah=:idSekolah")
+    @Query(value = "SELECT new com.alfazid.siasd.model.dto.KelasDto (c.idKelas,c.namaKelas) FROM KelasEntity c WHERE c.idSekolah=:idSekolah")
     List<KelasDto> findKelas(@Param("idSekolah") int idSekolah);
 
 }

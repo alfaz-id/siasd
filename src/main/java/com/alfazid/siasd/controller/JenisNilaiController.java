@@ -19,12 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alfazid.siasd.model.JenisNilai;
-import com.alfazid.siasd.model.KelasEntity;
+import com.alfazid.siasd.model.entity.JenisNilai;
 import com.alfazid.siasd.repository.JenisNilaiRepository;
-
-import net.bytebuddy.asm.Advice.Return;
-import net.bytebuddy.pool.TypePool.Default.ReaderMode;
 
 /**
  * @author   mohirwanh@gmail.com

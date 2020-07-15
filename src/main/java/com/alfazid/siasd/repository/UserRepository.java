@@ -1,6 +1,6 @@
 package com.alfazid.siasd.repository;
 
-import com.alfazid.siasd.model.User;
+import com.alfazid.siasd.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

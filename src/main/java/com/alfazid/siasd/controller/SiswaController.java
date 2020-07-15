@@ -1,11 +1,8 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.dto.KelasDto;
-import com.alfazid.siasd.dto.MapelDto;
-import com.alfazid.siasd.model.GlobalEntity;
-import com.alfazid.siasd.model.Kkm;
-import com.alfazid.siasd.model.ProvinsiEntity;
-import com.alfazid.siasd.model.SiswaEntity;
+import com.alfazid.siasd.model.entity.GlobalEntity;
+import com.alfazid.siasd.model.entity.ProvinsiEntity;
+import com.alfazid.siasd.model.entity.SiswaEntity;
 import com.alfazid.siasd.repository.MstGlobalRepository;
 import com.alfazid.siasd.repository.ProvinsiRepository;
 import com.alfazid.siasd.repository.SiswaRepository;

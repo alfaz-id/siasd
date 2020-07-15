@@ -1,6 +1,6 @@
 package com.alfazid.siasd.service;
 
-import com.alfazid.siasd.dto.WalikelasDto;
+import com.alfazid.siasd.model.dto.WalikelasDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

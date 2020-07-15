@@ -1,8 +1,8 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.model.KabupatenEntity;
-import com.alfazid.siasd.model.KecamatanEntity;
-import com.alfazid.siasd.dto.KecamatanDto;
+import com.alfazid.siasd.model.entity.KabupatenEntity;
+import com.alfazid.siasd.model.entity.KecamatanEntity;
+import com.alfazid.siasd.model.dto.KecamatanDto;
 import com.alfazid.siasd.service.KecamatanService;
 import com.alfazid.siasd.utilities.RestError;
 

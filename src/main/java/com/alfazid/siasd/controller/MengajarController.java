@@ -1,16 +1,16 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.dto.GuruDto;
-import com.alfazid.siasd.dto.KelasDto;
-import com.alfazid.siasd.dto.MapelDto;
-import com.alfazid.siasd.dto.MengajarDto;
+import com.alfazid.siasd.model.dto.GuruDto;
+import com.alfazid.siasd.model.dto.KelasDto;
+import com.alfazid.siasd.model.dto.MapelDto;
+import com.alfazid.siasd.model.dto.MengajarDto;
 import com.alfazid.siasd.repository.GuruRepository;
 import com.alfazid.siasd.repository.KelasRepository;
 import com.alfazid.siasd.repository.MapelRepository;
 import com.alfazid.siasd.repository.MengajarRepository;
 import com.alfazid.siasd.service.MengajarService;
-import com.alfazid.siasd.model.MapelEntity;
-import com.alfazid.siasd.model.MengajarEntity;
+import com.alfazid.siasd.model.entity.MapelEntity;
+import com.alfazid.siasd.model.entity.MengajarEntity;
 import com.alfazid.siasd.utilities.RestError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

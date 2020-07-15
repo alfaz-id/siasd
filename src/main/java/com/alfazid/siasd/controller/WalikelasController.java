@@ -1,7 +1,7 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.model.WaliKelasEntity;
-import com.alfazid.siasd.dto.*;
+import com.alfazid.siasd.model.entity.WaliKelasEntity;
+import com.alfazid.siasd.model.dto.*;
 import com.alfazid.siasd.repository.GuruRepository;
 import com.alfazid.siasd.repository.KelasRepository;
 import com.alfazid.siasd.repository.WalikelasRepository;

@@ -1,6 +1,6 @@
 package com.alfazid.siasd.repository;
 
-import com.alfazid.siasd.model.ProvinsiEntity;
+import com.alfazid.siasd.model.entity.ProvinsiEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -24,6 +24,6 @@ public interface ProvinsiRepository extends CrudRepository<ProvinsiEntity,Intege
     @Query(value = "SELECT c.idProvinsi FROM ProvinsiEntity c WHERE c.kodeProvinsi =:kode")
     String existByKode(@Param("kode") int kode);
 
-    @Query(value = "SELECT new com.alfazid.siasd.model.ProvinsiEntity (c.idProvinsi,c.namaProvinsi) FROM ProvinsiEntity c")
+    @Query(value = "SELECT new com.alfazid.siasd.model.entity.ProvinsiEntity (c.idProvinsi,c.namaProvinsi) FROM ProvinsiEntity c")
     List<ProvinsiEntity> findProvinsi();
 }

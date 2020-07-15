@@ -1,6 +1,6 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.model.KelasEntity;
+import com.alfazid.siasd.model.entity.KelasEntity;
 import com.alfazid.siasd.repository.KelasRepository;
 import com.alfazid.siasd.utilities.RestError;
 import org.springframework.beans.factory.annotation.Autowired;

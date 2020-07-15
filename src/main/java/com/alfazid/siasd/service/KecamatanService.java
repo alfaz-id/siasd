@@ -1,6 +1,6 @@
 package com.alfazid.siasd.service;
 
-import com.alfazid.siasd.dto.KecamatanDto;
+import com.alfazid.siasd.model.dto.KecamatanDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

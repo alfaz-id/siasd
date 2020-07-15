@@ -14,8 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.alfazid.siasd.dto.DesaDto;
-import com.alfazid.siasd.dto.KkmDto;
+import com.alfazid.siasd.model.dto.KkmDto;
 
 /**
  * @author   mohirwanh@gmail.com

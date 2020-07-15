@@ -19,13 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alfazid.siasd.dto.KabupatenDto;
-import com.alfazid.siasd.dto.KelasDto;
-import com.alfazid.siasd.dto.KkmDto;
-import com.alfazid.siasd.dto.MapelDto;
-import com.alfazid.siasd.model.JenisNilai;
-import com.alfazid.siasd.model.Kkm;
-import com.alfazid.siasd.model.MapelEntity;
+import com.alfazid.siasd.model.dto.KelasDto;
+import com.alfazid.siasd.model.dto.KkmDto;
+import com.alfazid.siasd.model.dto.MapelDto;
+import com.alfazid.siasd.model.entity.Kkm;
 import com.alfazid.siasd.repository.KelasRepository;
 import com.alfazid.siasd.repository.KkmRepository;
 import com.alfazid.siasd.repository.MapelRepository;

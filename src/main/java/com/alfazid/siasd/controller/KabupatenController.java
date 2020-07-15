@@ -1,8 +1,8 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.model.KabupatenEntity;
-import com.alfazid.siasd.model.ProvinsiEntity;
-import com.alfazid.siasd.dto.KabupatenDto;
+import com.alfazid.siasd.model.entity.KabupatenEntity;
+import com.alfazid.siasd.model.entity.ProvinsiEntity;
+import com.alfazid.siasd.model.dto.KabupatenDto;
 import com.alfazid.siasd.repository.KabupatenRepository;
 import com.alfazid.siasd.repository.ProvinsiRepository;
 import com.alfazid.siasd.service.KabupatenService;

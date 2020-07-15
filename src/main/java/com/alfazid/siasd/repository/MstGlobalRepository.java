@@ -11,7 +11,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.alfazid.siasd.model.GlobalEntity;
+import com.alfazid.siasd.model.entity.GlobalEntity;
 
 /**
  * @author   mohirwanh@gmail.com

@@ -1,6 +1,6 @@
 package com.alfazid.siasd.repository;
 
-import com.alfazid.siasd.model.SiswaEntity;
+import com.alfazid.siasd.model.entity.SiswaEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

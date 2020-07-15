@@ -1,6 +1,6 @@
 package com.alfazid.siasd.repository;
 
-import com.alfazid.siasd.model.KabupatenEntity;
+import com.alfazid.siasd.model.entity.KabupatenEntity;
 
 import java.util.List;
 
@@ -15,6 +15,6 @@ import org.springframework.data.repository.query.Param;
 public interface KabupatenRepository extends CrudRepository<KabupatenEntity,Integer>,PagingAndSortingRepository<KabupatenEntity,Integer> {
 	 @Query(value = "SELECT c.idKabupaten FROM KabupatenEntity c WHERE c.kodeKabupaten =:kode")
 	 String existByKode(@Param("kode") String kode);
-	 @Query(value = "SELECT new com.alfazid.siasd.model.KabupatenEntity (c.idKabupaten,c.namaKabupaten) FROM KabupatenEntity c")
+	 @Query(value = "SELECT new com.alfazid.siasd.model.entity.KabupatenEntity (c.idKabupaten,c.namaKabupaten) FROM KabupatenEntity c")
 	 List<KabupatenEntity> findKabupaten();
 }

@@ -1,7 +1,7 @@
 package com.alfazid.siasd.repository;
 
-import com.alfazid.siasd.model.GuruEntity;
-import com.alfazid.siasd.dto.GuruDto;
+import com.alfazid.siasd.model.entity.GuruEntity;
+import com.alfazid.siasd.model.dto.GuruDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -33,7 +33,7 @@ public interface GuruRepository extends JpaRepository<GuruEntity,Integer>,Paging
     @Query(value = "SELECT c FROM GuruEntity c WHERE c.idSekolah=:idSekolah")
     Page<GuruEntity> findAll(Pageable pageable, @Param("idSekolah") int idSekolah);
 
-    @Query(value = "SELECT new com.alfazid.siasd.dto.GuruDto(c.idGuru,c.namaGuru) FROM GuruEntity c WHERE c.idSekolah=:idSekolah")
+    @Query(value = "SELECT new com.alfazid.siasd.model.dto.GuruDto(c.idGuru,c.namaGuru) FROM GuruEntity c WHERE c.idSekolah=:idSekolah")
     List<GuruDto> findGuru(@Param("idSekolah") int idSekolah);
     
     GuruEntity findByNip(String nip);

@@ -1,6 +1,6 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.model.MapelEntity;
+import com.alfazid.siasd.model.entity.MapelEntity;
 import com.alfazid.siasd.repository.MapelRepository;
 import com.alfazid.siasd.utilities.RestError;
 import org.springframework.beans.factory.annotation.Autowired;

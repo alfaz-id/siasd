@@ -1,6 +1,6 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.model.ProvinsiEntity;
+import com.alfazid.siasd.model.entity.ProvinsiEntity;
 import com.alfazid.siasd.repository.ProvinsiRepository;
 import com.alfazid.siasd.utilities.RestError;
 import org.springframework.beans.factory.annotation.Autowired;

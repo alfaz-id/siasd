@@ -1,6 +1,6 @@
 package com.alfazid.siasd.controller;
 
-import com.alfazid.siasd.model.SekolahEntity;
+import com.alfazid.siasd.model.entity.SekolahEntity;
 import com.alfazid.siasd.repository.SekolahRepository;
 import com.alfazid.siasd.service.SekolahService;
 

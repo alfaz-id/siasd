@@ -23,9 +23,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alfazid.siasd.model.DesaEntity;
-import com.alfazid.siasd.model.KecamatanEntity;
-import com.alfazid.siasd.dto.DesaDto;
+import com.alfazid.siasd.model.entity.DesaEntity;
+import com.alfazid.siasd.model.entity.KecamatanEntity;
+import com.alfazid.siasd.model.dto.DesaDto;
 import com.alfazid.siasd.repository.DesaRepository;
 import com.alfazid.siasd.repository.KecamatanRepository;
 import com.alfazid.siasd.service.DesaServices;

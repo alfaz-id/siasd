@@ -1,8 +1,8 @@
 package com.alfazid.siasd.service;
 
-import com.alfazid.siasd.model.User;
+import com.alfazid.siasd.model.entity.User;
 import com.alfazid.siasd.repository.RoleRepository;
-import com.alfazid.siasd.model.Role;
+import com.alfazid.siasd.model.entity.Role;
 import com.alfazid.siasd.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

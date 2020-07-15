@@ -8,24 +8,24 @@
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
-    <mapping class="com.alfazid.siasd.model.EkskulEntity"/>
-    <mapping class="com.alfazid.siasd.model.GuruEntity"/>
-    <mapping class="com.alfazid.siasd.model.KelasEntity"/>
-    <mapping class="com.alfazid.siasd.model.KelasSiswaEntity"/>
-    <mapping class="com.alfazid.siasd.model.MapelEntity"/>
-    <mapping class="com.alfazid.siasd.model.MengajarEntity"/>
-    <mapping class="com.alfazid.siasd.model.NilaiEkskulEntity"/>
-    <mapping class="com.alfazid.siasd.model.NilaiMapelEntity"/>
-    <mapping class="com.alfazid.siasd.model.SiswaEntity"/>
-    <mapping class="com.alfazid.siasd.model.WaliKelasEntity"/>
-    <mapping class="com.alfazid.siasd.model.BahasaIbuEntity"/>
-    <mapping class="com.alfazid.siasd.model.DesaEntity"/>
-    <mapping class="com.alfazid.siasd.model.GlobalEntity"/>
-    <mapping class="com.alfazid.siasd.model.KabupatenEntity"/>
-    <mapping class="com.alfazid.siasd.model.KecamatanEntity"/>
-    <mapping class="com.alfazid.siasd.model.PekerjaanEntity"/>
-    <mapping class="com.alfazid.siasd.model.ProvinsiEntity"/>
-    <mapping class="com.alfazid.siasd.model.SekolahEntity"/>
-    <mapping class="com.alfazid.siasd.model.GuruEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.EkskulEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.GuruEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.KelasEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.KelasSiswaEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.MapelEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.MengajarEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.NilaiEkskulEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.NilaiMapelEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.SiswaEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.WaliKelasEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.BahasaIbuEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.DesaEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.GlobalEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.KabupatenEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.KecamatanEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.PekerjaanEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.ProvinsiEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.SekolahEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.GuruEntity"/>
   </session-factory>
 </hibernate-configuration>
