@@ -34,4 +34,11 @@ public class AdminController {
 			model.addAttribute("page",page);
 			return new ModelAndView("admin/admin-list");
 		}
+
+	@RequestMapping (value = "/page",method = RequestMethod.GET)
+	public ModelAndView paging(Model model,@PageableDefault(size = 10) Pageable pageable) {
+		Page<Kkm>page = kkmRepository.findAll(pageable);
+		model.addAttribute("page",page);
+		return new ModelAndView("admin/admin-list");
+	}
 }

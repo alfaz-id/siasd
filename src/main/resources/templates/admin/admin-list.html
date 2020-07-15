@@ -11,7 +11,7 @@
                     <div class="mr-2">
                         <select class="form-control form-control-sm" id="by" name="by">
                             <option th:value="All">All</option>
-                            <option th:value="Nama">Mapel</option>
+                            <option th:value="Name">Nama</option>
                             <option th:value="Active">Active</option>
                         </select>
                     </div>
@@ -31,13 +31,13 @@
                     <tr>
                         <th>No</th>
                         <th>Username</th>
-                        <th>Role</th>
+                        <th>Name</th>
                         <th>Active</th>
                         <th style="text-align: center">#</th>
                     </tr>
                     </thead>
                     <tbody>
-             <!--        <tr th:each="items,iter : ${page.content}">
+                    <tr th:each="items,iter : ${page.content}">
                         <td th:text="${(page.number) * page.size + iter.index + 1}"></td>
                         <td th:text="${items.namaJenisNilai}"></td>
                         <td style="width: 50px;text-align: center" th:text="${items.active}"></td>
@@ -47,7 +47,7 @@
                             <a th:href="@{/jenis-nilai/delete/{id}(id=${items.idJenisNilai})}" style="padding: 3px;"><span
                                     class="fa fa-trash"></span></a>
                         </td>
-                    </tr> -->
+                    </tr>
                     </tbody>
                 </table>
             </div>
