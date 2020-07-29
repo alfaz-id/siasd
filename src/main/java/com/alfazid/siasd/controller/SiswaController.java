@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,16 +42,18 @@ public class SiswaController {
         model.addAttribute("page", page);
         return new ModelAndView("siswa/siswa-list");
     }
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create(Model model, SiswaEntity siswaEntity) {
-    	List<GlobalEntity> globalEntities = globalRepository.findByTypeMaster("JOB");
-    	List<ProvinsiEntity>provinsiEntities = provinsiRepository.findProvinsi();
+    	List<GlobalEntity> jobs = globalRepository.findByTypeMaster("JOB");
+    	List<ProvinsiEntity>listProvince = provinsiRepository.findProvinsi();
     	
-    	model.addAttribute("globalEntities", globalEntities);
-    	model.addAttribute("provinsiEntities", provinsiEntities);
+    	model.addAttribute("jobs", jobs);
+    	model.addAttribute("listProvinsi", listProvince);
     	model.addAttribute("mode", "Create");
 		return new ModelAndView("siswa/siswa-create");
 	}
+
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public ModelAndView doCreate(ModelAndView modelAndView, Model model, @ModelAttribute("siswa") SiswaEntity siswa,
 			BindingResult bindingResult) {
@@ -67,24 +70,24 @@ public class SiswaController {
 		return modelAndView;
 	}
 
-//    @RequestMapping(value ="/{by}/{value}",method = RequestMethod.GET)
-//    public ModelAndView  getByName(Model model,@PageableDefault(size = 10) Pageable pageable,@PathVariable String by,@PathVariable String value){
-//        if(value.isEmpty()){
-//            value="";
-//        }
-//        Page<SiswaEntity> page = null;
-//        switch (by){
-//            case "Nama":
-//                page= siswaRepository.findByName(pageable,idSekolah, value);
-//                break;
-//            case "Active":
-//                page= siswaRepository.findActive(pageable,idSekolah, value);
-//                break;
-//            case "All":
-//                page = siswaRepository.findAll(pageable,idSekolah);
-//                break;
-//        }
-//        model.addAttribute("page",page);
-//        return new ModelAndView("siswa/siswa-list");
-//    }
+    @RequestMapping(value ="/{by}/{value}",method = RequestMethod.GET)
+    public ModelAndView  getByName(Model model,@PageableDefault(size = 10) Pageable pageable,@PathVariable String by,@PathVariable String value){
+        if(value.isEmpty()){
+            value="";
+        }
+        Page<SiswaEntity> page = null;
+        switch (by){
+            case "Nama":
+                page= siswaRepository.findByName(pageable,idSekolah, value);
+                break;
+            case "Active":
+                page= siswaRepository.findActive(pageable,idSekolah, value);
+                break;
+            case "All":
+                page = siswaRepository.findAll(pageable,idSekolah);
+                break;
+        }
+        model.addAttribute("page",page);
+        return new ModelAndView("siswa/siswa-list");
+    }
 }

@@ -34,6 +34,7 @@ import com.alfazid.siasd.repository.JenisNilaiRepository;
 public class JenisNilaiController {
 	@Autowired
 	private JenisNilaiRepository jenisNilaiRepository;
+
 	private int idSekolah=1;
 	
 	@RequestMapping(value = {"", "/"},method = RequestMethod.GET)

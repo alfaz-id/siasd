@@ -18,7 +18,7 @@
     <mapping class="com.alfazid.siasd.model.entity.NilaiMapelEntity"/>
     <mapping class="com.alfazid.siasd.model.entity.SiswaEntity"/>
     <mapping class="com.alfazid.siasd.model.entity.WaliKelasEntity"/>
-    <mapping class="com.alfazid.siasd.model.entity.BahasaIbuEntity"/>
+    <mapping class="com.alfazid.siasd.model.entity.BahasaIbu"/>
     <mapping class="com.alfazid.siasd.model.entity.DesaEntity"/>
     <mapping class="com.alfazid.siasd.model.entity.GlobalEntity"/>
     <mapping class="com.alfazid.siasd.model.entity.KabupatenEntity"/>

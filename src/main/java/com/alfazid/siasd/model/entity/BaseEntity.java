@@ -7,7 +7,9 @@ import java.sql.Timestamp;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 
+import groovy.transform.builder.Builder;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,27 +20,23 @@ import lombok.NoArgsConstructor;
  * @Date     Oct 20, 2019
  * @projects siasd @package com.alfazid.siasd.model
  */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreatedAt {
+@Builder
+public class BaseEntity {
 	 @Basic
-     @Column(name = "id_sekolah")
-	 private int idSekolah;
+	 @Column(name = "created_by",length = 36)
+	 private String createdBy;
 	 @Basic
-	 @Column(name = "active")
-	 private String active;
+	 @Column(name = "created_at")
+	 private Timestamp createdAt;
 	 @Basic
-	 @Column(name = "user_created")
-	 private Integer userCreated;
+	 @Column(name = "update_by",length = 36)
+	 private String updatedBy;
 	 @Basic
-	 @Column(name = "timestamp_created")
-	 private Timestamp timestampCreated;
-	 @Basic
-	 @Column(name = "user_update")
-	 private Integer userUpdated;
-	 @Basic
-	 @Column(name = "timestamp_update")
-	 private Timestamp timestampUpdate;
+	 @Column(name = "update_at")
+	 private Timestamp updateAt;
 
 }

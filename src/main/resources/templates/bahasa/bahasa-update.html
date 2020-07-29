@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                <h2>Master Bahasa Ibu <span th:text="${mode}"></span></h2>
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12">
+                <form action="#" th:action="@{/bahasa-ibu/{id}(id=${bahasaIbu.idBahasaIbu})}" th:object="${bahasaIbu}" method="POST">
+                    <div class="form-group row has-success">
+                        <div class="col-sm-6">
+                            <input class="form-control form-control-sm" th:field="*{idBahasaIbu}" type="text" id="idBahasaIbu"
+                                   name="idBahasaIbu"  hidden style="background-color: transparent;border: gray solid 1px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="namaBahasaIbu">Nama Bahasa Ibu</label>
+                        <div class="col-sm-6">
+                            <input class="form-control form-control-sm" type="text" th:field="*{namaBahasaIbu}" id="namaBahasaIbu"
+                                   name="namaBahasaIbu" placeholder="Masukan nama bahasa ibu" required>
+                            <span th:if="${#fields.hasErrors('namaBahasaIbu')}" th:errors="*{namaBahasaIbu}"
+                                  class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row has-success">
+                        <label class="control-label col-sm-3" for="active">Active</label>
+
+                        <div class="col-sm-6">
+                            <select class="form-control form-control-sm" th:field="*{active}" id="active" name="active">
+                                <option th:value="Y">Ya</option>
+                                <option th:value="N">Tidak</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="col-sm-6" style="float: right;">
+                            <a class="btn btn-sm btn-secondary" href="/bahasa-ibu/">
+                                Batal
+                            </a>
+                            <input type="submit" class="btn btn-secondary btn-sm" value="Simpan" id="btnSimpan"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
