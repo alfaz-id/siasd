@@ -67,7 +67,6 @@ public class BahasaIbuService implements BaseService<BahasaIbu> {
             bahasaIbu.setUpdateAt(new Timestamp(System.currentTimeMillis()));
             bahasaIbuRepository.save(bahasaIbu);
         }
-
     }
 
     @Override
