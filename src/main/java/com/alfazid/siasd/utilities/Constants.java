@@ -6,4 +6,7 @@ package com.alfazid.siasd.utilities;
 public class Constants {
     public static final String ACTIVE ="Y";
     public static final String NON_ACTIVE ="N";
+
+    public Constants() {
+    }
 }

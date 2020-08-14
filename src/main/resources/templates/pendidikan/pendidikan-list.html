@@ -6,13 +6,13 @@
     <div class="row">
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                <h2>Data Bahasa Ibu</h2>
+                <h2>Data Pendidikan</h2>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="mr-2">
                         <select class="form-control form-control-sm" id="searchBy" name="searchBy">
                             <option th:value="All">All</option>
-                            <option th:value="idBahasaIbu">ID Bahasa Ibu</option>
-                            <option th:value="namaBahasaIbu">Nama Bahasa Ibu</option>
+                            <option th:value="idPendidikan">ID Pendidikan</option>
+                            <option th:value="namaPendidikan">Nama Pendidikan</option>
                             <option th:value="active">Active</option>
                         </select>
                     </div>
@@ -21,7 +21,7 @@
                                class="form-control input-sm form-control-sm"/>
                         <button class="btn btn-sm btn-secondary" onclick="onSearch()">Cari</button>
                     </div>
-                    <a class="btn btn-sm btn-secondary" href="/bahasa-ibu/create">
+                    <a class="btn btn-sm btn-secondary" href="/pendidikan/create">
                         Tambah Data
                     </a>
                 </div>
@@ -31,7 +31,7 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Bahasa Ibu</th>
+                        <th>Nama Pendidikan</th>
                         <th>Active</th>
                         <th style="text-align: center">#</th>
                     </tr>
@@ -39,12 +39,12 @@
                     <tbody>
                     <tr th:each="data,iter : ${page.content}">
                         <td th:text="${(page.number) * page.size + iter.index + 1}"></td>
-                        <td th:text="${data.namaBahasaIbu}"></td>
+                        <td th:text="${data.namaPendidikan}"></td>
                         <td style="width: 50px;text-align: center" th:text="${data.active}"></td>
                         <td style="width: 50px;">
-                            <a th:href="@{/bahasa-ibu/{id}(id=${data.idBahasaIbu})}" style="padding: 3px;"><span
+                            <a th:href="@{/pendidikan/{id}(id=${data.idPendidikan})}" style="padding: 3px;"><span
                                     class="fa fa-pencil"></span></a>
-                            <a th:href="@{/bahasa-ibu/delete/{id}(id=${data.idBahasaIbu})}" style="padding: 3px;"><span
+                            <a th:href="@{/pendidikan/delete/{id}(id=${data.idPendidikan})}" style="padding: 3px;"><span
                                     class="fa fa-trash"></span></a>
                         </td>
                     </tr>
@@ -73,7 +73,7 @@
                     function onRefresh() {
                         var page = document.getElementById("size").value;
                         var txtCurrent = document.getElementById("txtCurrent").value;
-                        window.location = "/bahasa-ibu?page=" + txtCurrent + "&size=" + page;
+                        window.location = "/pendidikan?page=" + txtCurrent + "&size=" + page;
                     }
                     function onSearch() {
                         var page = document.getElementById("size").value;
@@ -82,9 +82,9 @@
                         var by = document.getElementById("searchBy").value;
                         console.log(search)
                         if (search !="") {
-                            window.location = "/bahasa-ibu?searchBy=" + by + "&searchValue=" + search + "&page=" + txtCurrent + "&size=" + page;
+                            window.location = "/pendidikan?searchBy=" + by + "&searchValue=" + search + "&page=" + txtCurrent + "&size=" + page;
                         } else {
-                            window.location = "/bahasa-ibu/"
+                            window.location = "/pendidikan/"
                         }
                     }
                 </script>
@@ -93,7 +93,7 @@
                         <ul class="pagination">
                             <div th:if="${page.hasPrevious() !=0}">
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{/bahasa-ibu(page=${page.number - 1},size=${page.size})} ">Prev</a>
+                                    <a class="page-link" th:href="@{/pendidikan(page=${page.number - 1},size=${page.size})} ">Prev</a>
                                 </li>
                             </div>
 
@@ -105,7 +105,7 @@
                             </li>
                             <div th:if="${page.number != page.totalPages}">
                                 <li class="page-item">
-                                    <a class="page-link" th:href="@{/bahasa-ibu(page=${page.number + 1},size=${page.size})}">Next</a>
+                                    <a class="page-link" th:href="@{/pendidikan(page=${page.number + 1},size=${page.size})}">Next</a>
                                 </li>
                             </div>
                         </ul>

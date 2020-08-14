@@ -1,35 +1,40 @@
 package com.alfazid.siasd.model.entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
 /**
- * Created by cigist on 04/08/19.
+ * Created by cigist on 14/08/20.
  */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "bahasa_ibu", schema = "")
-public class BahasaIbu{
+@Table(name = "pendidikan")
+public class Pendidikan {
     @Id
-    @Column(name = "id_bahasa_ibu",length = 36,nullable = false)
-    private String idBahasaIbu;
-    @Column(name = "nama_bahasa_ibu",length = 60,nullable = false)
-    private String namaBahasaIbu;
+    @Column(name = "id_pendidikan",length = 36,nullable = false)
+    private String idPendidikan;
+    @Column(name = "nama_pendidikan",length = 30,nullable = false)
+    private String namaPendidikan;
     @Column(name = "active",length = 1,nullable = false)
     private String active;
     @Column(name = "created_by",length = 36)
     private String createdBy;
     @Column(name = "created_at")
     private Timestamp createdAt;
-    @Column(name = "update_by",length = 36)
+    @Column(name = "updated_by",length = 36)
     private String updatedBy;
-    @Column(name = "update_at")
+    @Column(name = "updated_at")
     private Timestamp updateAt;
 }

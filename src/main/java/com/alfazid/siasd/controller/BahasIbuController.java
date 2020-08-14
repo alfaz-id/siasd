@@ -6,6 +6,7 @@ import com.alfazid.siasd.utilities.BasePagintaion;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ import java.util.Optional;
  * Created by cigist on 23/07/20.
  */
 
-@RestController
+@Controller
 @RequestMapping(value = "/bahasa-ibu")
 public class BahasIbuController {
     private BahasaIbuService bahasaIbuService;
@@ -31,7 +32,7 @@ public class BahasIbuController {
     public ModelAndView index(Model model,BasePagintaion basePagintaion,@PageableDefault(size = 10) Pageable pageable){
         Page<BahasaIbu> page = bahasaIbuService.read(new BahasaIbu(),basePagintaion,pageable);
         model.addAttribute("page",page);
-        return new ModelAndView ("bahasa/bahasa-ibu");
+        return new ModelAndView ("bahasa/bahasa-list");
     }
 
     @GetMapping(value = "/create")
@@ -43,7 +44,7 @@ public class BahasIbuController {
     @PostMapping(value = "/")
     public ModelAndView doPost(BahasaIbu bahasaIbu,BindingResult result){
         if (result.hasErrors()) {
-            new ModelAndView ("bahasa/bahasa-ibu");
+            new ModelAndView ("bahasa/bahasa-list");
         }else{
             bahasaIbuService.create(bahasaIbu);
         }
@@ -55,7 +56,7 @@ public class BahasIbuController {
     public ModelAndView update(Model model,@PathVariable String id){
         Optional<BahasaIbu> record = bahasaIbuService.findById(id);
         if(!record.isPresent()){
-            return new ModelAndView("redirect:/bahasa-ibu");
+            return new ModelAndView("redirect:/bahasa-list");
         }
         model.addAttribute("mode","Update");
         model.addAttribute("bahasaIbu",record.get());
